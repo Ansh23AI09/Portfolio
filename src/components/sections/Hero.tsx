@@ -219,7 +219,7 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
             <div className="relative rounded-2xl bg-[#1C1E22] border border-[#303238] shadow-2xl overflow-hidden">
               
               {/* Window Header with Tabs */}
-              <div className="flex items-center justify-between px-3 py-2.5 bg-[#101113]/95 border-b border-[#303238]">
+              <div className="relative z-20 flex items-center justify-between px-3 py-2.5 bg-[#101113]/95 border-b border-[#303238]">
                 
                 {/* Traffic lights & tabs */}
                 <div className="flex items-center gap-3">
@@ -484,7 +484,7 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="hidden sm:flex items-center gap-3 absolute -top-5 -right-3 bg-[#1C1E22]/95 backdrop-blur-md p-3 rounded-xl border border-[#303238] shadow-xl"
+              className="hidden sm:flex items-center gap-3 absolute -top-8 -right-2 bg-[#1C1E22]/95 backdrop-blur-md p-3 rounded-xl border border-[#303238] shadow-xl pointer-events-none select-none z-10"
             >
               <div className="p-2 rounded-lg bg-[#22C55E]/15 text-[#22C55E]">
                 <Sparkles className="w-4 h-4" />
