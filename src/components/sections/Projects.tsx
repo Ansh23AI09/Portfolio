@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   ExternalLink,
   Maximize2,
@@ -10,6 +11,7 @@ import { SectionHeading } from '../common/SectionHeading'
 import { SkillTag } from '../common/SkillTag'
 import { Button } from '../common/Button'
 import { ProjectModal } from '../common/ProjectModal'
+import { SpotlightCard } from '../common/SpotlightCard'
 import { GithubIcon } from '../common/Icons'
 import { projects } from '../../data/portfolioData'
 import type { Project } from '../../types'
@@ -26,15 +28,14 @@ export const Projects: React.FC = () => {
         
         <SectionHeading
           number="04"
-          title="Featured Engineering Projects"
-          subtitle="Real-world software built with performance, security, and algorithmic depth. Click any card to inspect architecture."
+          title="Featured Software Projects"
+          subtitle="Real-world distributed systems, applied NLP engines, and developer-centric tools. Built with high standards for speed, security, and maintainability."
         />
 
         {/* Featured Flagship Project (VerifyWeb - Larger Card) */}
         {featuredProject && (
-          <div className="mb-12 rounded-3xl bg-[#1C1E22] border-2 border-[#E53945]/40 hover:border-[#E53945] transition-all duration-300 overflow-hidden shadow-2xl relative group">
-            
-            {/* Red Accent Top Glow Bar */}
+          <SpotlightCard className="mb-12 border-2 border-[#E53945]/40 hover:border-[#E53945] shadow-2xl relative group overflow-hidden">
+            {/* Red Accent Top Glow Bar with subtle animated pulse */}
             <div className="h-1.5 w-full bg-gradient-to-r from-[#E53945] via-[#FF5964] to-[#E53945]" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-8 lg:p-10">
@@ -46,7 +47,7 @@ export const Projects: React.FC = () => {
                   <div className="flex flex-wrap items-center gap-2.5 mb-4">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-code font-bold uppercase bg-[#E53945]/15 text-[#FF5964] border border-[#E53945]/30">
                       <Sparkles className="w-3.5 h-3.5" />
-                      FLAGSHIP PROJECT
+                      FLAGSHIP SYSTEM
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-code font-semibold uppercase bg-[#25272C] text-[#22C55E] border border-[#303238]">
                       <Activity className="w-3.5 h-3.5" />
@@ -71,10 +72,10 @@ export const Projects: React.FC = () => {
 
                   {/* Key Metrics */}
                   {featuredProject.metrics && (
-                    <div className="grid grid-cols-3 gap-3 mb-6 p-4 rounded-xl bg-[#101113]/70 border border-[#303238]">
+                    <div className="grid grid-cols-3 gap-3 mb-6 p-4 rounded-xl bg-[#101113]/80 border border-[#303238]">
                       {featuredProject.metrics.map((m, i) => (
                         <div key={i} className="text-center">
-                          <p className="font-heading text-lg sm:text-xl font-bold text-[#FF5964]">{m.value}</p>
+                          <p className="font-heading text-lg sm:text-2xl font-bold text-[#FF5964]">{m.value}</p>
                           <p className="font-code text-[11px] text-[#A1A1AA] uppercase mt-0.5">{m.label}</p>
                         </div>
                       ))}
@@ -84,7 +85,7 @@ export const Projects: React.FC = () => {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {featuredProject.technologies.map((t) => (
-                      <SkillTag key={t} name={t} size="sm" highlight={['Python', 'FastAPI', 'React'].includes(t)} />
+                      <SkillTag key={t} name={t} size="sm" highlight={['Python', 'FastAPI', 'React', 'PyTorch'].includes(t)} />
                     ))}
                   </div>
                 </div>
@@ -130,14 +131,16 @@ export const Projects: React.FC = () => {
 
               {/* Right Visual / Preview (5 cols) */}
               <div className="lg:col-span-5 flex flex-col justify-center">
-                <div
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
                   className="relative rounded-2xl overflow-hidden border border-[#303238] bg-[#101113] group-hover:border-[#E53945]/50 transition-colors cursor-pointer"
                   onClick={() => setSelectedProject(featuredProject)}
                 >
                   <img
                     src={featuredProject.previewImage}
                     alt={featuredProject.title}
-                    className="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
+                    className="w-full h-72 sm:h-80 object-cover object-center transition-transform duration-500 opacity-80 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#101113] via-transparent to-transparent opacity-80" />
                   
@@ -149,19 +152,19 @@ export const Projects: React.FC = () => {
                       <Maximize2 className="w-4 h-4" />
                     </span>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
             </div>
-          </div>
+          </SpotlightCard>
         )}
 
         {/* Secondary Projects Grid (3-column layout) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {secondaryProjects.map((project) => (
-            <div
+            <SpotlightCard
               key={project.id}
-              className="flex flex-col justify-between p-6 rounded-2xl bg-[#1C1E22] border border-[#303238] hover:border-[#E53945]/50 hover:bg-[#25272C]/70 transition-all duration-300 shadow-lg group"
+              className="flex flex-col justify-between p-6 shadow-lg group"
             >
               <div>
                 {/* Image thumbnail */}
@@ -173,7 +176,7 @@ export const Projects: React.FC = () => {
                     <img
                       src={project.previewImage}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-75 group-hover:opacity-95"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-80 group-hover:opacity-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1C1E22] via-transparent to-transparent opacity-60" />
                   </div>
@@ -220,8 +223,8 @@ export const Projects: React.FC = () => {
                   onClick={() => setSelectedProject(project)}
                   className="font-code text-xs font-semibold text-[#F5F5F5] group-hover:text-[#FF5964] flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
-                  <span>View Details</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>Inspect Architecture</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -250,7 +253,7 @@ export const Projects: React.FC = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
 

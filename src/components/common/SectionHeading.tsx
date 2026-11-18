@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 interface SectionHeadingProps {
   number: string
@@ -16,14 +17,20 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const isCenter = align === 'center'
 
   return (
-    <div className={`mb-12 md:mb-16 ${isCenter ? 'text-center' : 'text-left'}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={`mb-12 md:mb-16 ${isCenter ? 'text-center' : 'text-left'}`}
+    >
       <div className={`flex items-center gap-3 mb-3 ${isCenter ? 'justify-center' : 'justify-start'}`}>
         <span className="font-code text-xs md:text-sm tracking-widest text-[#E53945] font-semibold uppercase">
           {number} //
         </span>
         <span className="h-[1px] w-8 bg-[#303238]" />
         <span className="font-code text-xs text-[#A1A1AA] tracking-wider uppercase">
-          SYSTEM_SPEC
+          ENGINEERING JOURNAL
         </span>
       </div>
 
@@ -37,7 +44,13 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
         </p>
       )}
 
-      <div className={`mt-4 h-1 w-16 bg-[#E53945] rounded-full ${isCenter ? 'mx-auto' : ''}`} />
-    </div>
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: 64 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className={`mt-4 h-1 bg-[#E53945] rounded-full ${isCenter ? 'mx-auto' : ''}`}
+      />
+    </motion.div>
   )
 }

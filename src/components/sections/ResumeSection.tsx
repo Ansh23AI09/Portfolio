@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { SectionHeading } from '../common/SectionHeading'
 import { Button } from '../common/Button'
+import { SpotlightCard } from '../common/SpotlightCard'
 import { personalInfo } from '../../data/portfolioData'
 
 export const ResumeSection: React.FC = () => {
@@ -56,10 +57,10 @@ FEATURED PROJECTS
         <SectionHeading
           number="07"
           title="Curriculum Vitae & Resume"
-          subtitle="Curated overview of technical experience, academic achievements, and system competencies prepared for engineering recruiters."
+          subtitle="A comprehensive record of systems built, academic honors, and technical competencies prepared for engineering recruiters."
         />
 
-        <div className="rounded-3xl bg-[#1C1E22] border border-[#303238] p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+        <SpotlightCard className="p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
           
           {/* Subtle Red Ambient Glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#E53945]/10 rounded-full blur-3xl pointer-events-none" />
@@ -84,7 +85,7 @@ FEATURED PROJECTS
               </h3>
 
               <p className="font-body text-[#A1A1AA] text-sm sm:text-base leading-relaxed">
-                Contains comprehensive breakdown of projects, systems built with Python, React, and FastAPI, course syllabus, competitive programming milestones, and academic transcripts.
+                Contains verified documentation of projects, microservices built with Python and FastAPI, coursework syllabus, competitive programming accomplishments, and academic transcripts.
               </p>
 
               {/* Highlights Checklist */}
@@ -188,7 +189,7 @@ FEATURED PROJECTS
 
           </div>
 
-        </div>
+        </SpotlightCard>
 
       </div>
     </section>

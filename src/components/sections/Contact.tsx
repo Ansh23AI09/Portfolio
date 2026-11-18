@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   Mail,
   Send,
@@ -6,11 +7,12 @@ import {
   Copy,
   Check,
   MessageSquare,
-  Sparkles
+  Clock
 } from 'lucide-react'
 import { SectionHeading } from '../common/SectionHeading'
 import { SocialLinks } from '../common/SocialLinks'
 import { Button } from '../common/Button'
+import { SpotlightCard } from '../common/SpotlightCard'
 import { personalInfo } from '../../data/portfolioData'
 
 export const Contact: React.FC = () => {
@@ -57,7 +59,7 @@ export const Contact: React.FC = () => {
         <SectionHeading
           number="08"
           title="Get In Touch / Contact"
-          subtitle="Interested in hiring, collaborating on an engineering project, or discussing software architecture? Send a direct dispatch."
+          subtitle="Interested in hiring, collaborating on an engineering project, or discussing software systems? Drop a note below."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
@@ -65,10 +67,11 @@ export const Contact: React.FC = () => {
           {/* Left Column: Direct Info & Social Cards (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#1C1E22] border border-[#303238] space-y-6">
+            <SpotlightCard className="p-6 sm:p-8 space-y-6">
               <div>
-                <span className="font-code text-xs font-semibold text-[#E53945] uppercase tracking-wider">
-                  DIRECT CHANNEL
+                <span className="font-code text-xs font-semibold text-[#E53945] uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E53945] animate-pulse" />
+                  DIRECT CHANNELS
                 </span>
                 <h3 className="font-heading text-2xl font-bold text-white mt-1">
                   Let's Build Something Exceptional
@@ -85,7 +88,7 @@ export const Contact: React.FC = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="overflow-hidden">
-                    <p className="font-code text-[11px] text-[#A1A1AA] uppercase">Email Address</p>
+                    <p className="font-code text-[11px] text-[#A1A1AA] uppercase">Personal Email</p>
                     <p className="font-code text-xs sm:text-sm font-semibold text-white truncate">
                       {personalInfo.email}
                     </p>
@@ -95,7 +98,7 @@ export const Contact: React.FC = () => {
                 <button
                   onClick={handleCopyEmail}
                   aria-label="Copy email address"
-                  className="p-2 rounded-lg bg-[#25272C] hover:bg-[#303238] text-[#A1A1AA] hover:text-white transition-colors shrink-0"
+                  className="p-2 rounded-lg bg-[#25272C] hover:bg-[#303238] text-[#A1A1AA] hover:text-white transition-colors shrink-0 cursor-pointer"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-[#22C55E]" /> : <Copy className="w-4 h-4" />}
                 </button>
@@ -108,11 +111,11 @@ export const Contact: React.FC = () => {
                 </p>
                 <SocialLinks layout="cards" />
               </div>
-            </div>
+            </SpotlightCard>
 
             {/* Response Time Guarantee Pill */}
-            <div className="p-4 rounded-xl bg-[#25272C]/70 border border-[#303238] flex items-center gap-3">
-              <Sparkles className="w-4 h-4 text-[#22C55E] shrink-0" />
+            <div className="p-4 rounded-xl bg-[#1C1E22] border border-[#303238] flex items-center gap-3">
+              <Clock className="w-4 h-4 text-[#22C55E] shrink-0" />
               <p className="font-code text-xs text-[#A1A1AA]">
                 Typical response time: <span className="text-white font-semibold">&lt; 24 hours</span>.
               </p>
@@ -122,21 +125,28 @@ export const Contact: React.FC = () => {
 
           {/* Right Column: Contact Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 lg:p-10 rounded-2xl bg-[#1C1E22] border border-[#303238] shadow-2xl relative">
+            <SpotlightCard className="p-6 sm:p-8 lg:p-10 shadow-2xl relative">
               
               <div className="flex items-center gap-2 mb-6">
                 <MessageSquare className="w-5 h-5 text-[#E53945]" />
                 <h3 className="font-heading text-xl font-bold text-white">
-                  Send Transmission
+                  Send a Direct Message
                 </h3>
               </div>
 
-              {submitted && (
-                <div className="mb-6 p-4 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E] flex items-center gap-3 text-sm font-body animate-fadeIn">
-                  <CheckCircle2 className="w-5 h-5 shrink-0" />
-                  <span>Thank you! Your message has been received. I will review it and reply promptly.</span>
-                </div>
-              )}
+              <AnimatePresence>
+                {submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mb-6 p-4 rounded-xl bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E] flex items-center gap-3 text-sm font-body"
+                  >
+                    <CheckCircle2 className="w-5 h-5 shrink-0" />
+                    <span>Thank you! Your message has been received. I will review it and reply promptly.</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -219,12 +229,12 @@ export const Contact: React.FC = () => {
                     className="w-full sm:w-auto"
                     icon={<Send className="w-4 h-4" />}
                   >
-                    {isSubmitting ? 'Transmitting Dispatch...' : 'Send Message'}
+                    {isSubmitting ? 'Sending Message...' : 'Send Message'}
                   </Button>
                 </div>
               </form>
 
-            </div>
+            </SpotlightCard>
           </div>
 
         </div>

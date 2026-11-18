@@ -1,6 +1,7 @@
 import React from 'react'
 import { Award, ExternalLink, Calendar } from 'lucide-react'
 import { SectionHeading } from '../common/SectionHeading'
+import { SpotlightCard } from '../common/SpotlightCard'
 import { certificates } from '../../data/portfolioData'
 
 export const Certifications: React.FC = () => {
@@ -10,15 +11,15 @@ export const Certifications: React.FC = () => {
         
         <SectionHeading
           number="06"
-          title="Certifications & Credentials"
-          subtitle="Verified coursework and technical specializations in full-stack engineering, databases, and neural networks."
+          title="Certifications & Coursework"
+          subtitle="Rigorous specialized training and verified certifications in modern frontend architectures, deep neural networks, and database performance."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {certificates.map((cert) => (
-            <div
+            <SpotlightCard
               key={cert.id}
-              className="flex flex-col justify-between p-6 rounded-2xl bg-[#1C1E22] border border-[#303238] hover:border-[#E53945]/50 hover:bg-[#25272C]/70 transition-all duration-300 group shadow-lg"
+              className="flex flex-col justify-between p-6 shadow-lg group"
             >
               <div>
                 {/* Header Icon & Issuer */}
@@ -67,7 +68,7 @@ export const Certifications: React.FC = () => {
                   </a>
                 </div>
               )}
-            </div>
+            </SpotlightCard>
           ))}
         </div>
 

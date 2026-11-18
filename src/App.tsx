@@ -9,15 +9,19 @@ import { ResumeSection } from './components/sections/ResumeSection'
 import { Contact } from './components/sections/Contact'
 import { Footer } from './components/layout/Footer'
 import { BackToTop } from './components/common/BackToTop'
+import { MotionCanvas } from './components/common/MotionCanvas'
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#101113] text-[#F5F5F5] font-body selection:bg-[#E53945] selection:text-white">
+    <div className="relative min-h-screen bg-[#101113] text-[#F5F5F5] font-body selection:bg-[#E53945] selection:text-white overflow-hidden">
+      {/* Background Interactive Ambient Motion Canvas */}
+      <MotionCanvas />
+
       {/* Top Sticky Navigation */}
       <Navbar />
 
       {/* Main Content Sections */}
-      <main>
+      <main className="relative z-10">
         {/* Section 01: Hero */}
         <Hero />
 
