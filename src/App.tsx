@@ -9,13 +9,17 @@ import { ResumeSection } from './components/sections/ResumeSection'
 import { Contact } from './components/sections/Contact'
 import { Footer } from './components/layout/Footer'
 import { BackToTop } from './components/common/BackToTop'
-import { MotionCanvas } from './components/common/MotionCanvas'
+import { BackgroundSystem } from './components/common/BackgroundSystem'
+import { CustomCursor } from './components/common/CustomCursor'
 
 export function App() {
   return (
-    <div className="relative min-h-screen bg-[#101113] text-[#F5F5F5] font-body selection:bg-[#E53945] selection:text-white overflow-hidden">
-      {/* Background Interactive Ambient Motion Canvas */}
-      <MotionCanvas />
+    <div className="relative min-h-screen bg-[#101113] text-[#F5F5F5] font-body selection:bg-[#E53945] selection:text-white">
+      {/* Subtle Custom Cursor (Advanced Motion) */}
+      <CustomCursor />
+
+      {/* Unified Multi-Layered Background: Particles + Animated Grid + Gradient Blooms */}
+      <BackgroundSystem />
 
       {/* Top Sticky Navigation */}
       <Navbar />

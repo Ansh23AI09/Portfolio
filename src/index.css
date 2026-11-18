@@ -46,9 +46,11 @@
   --section-spacing: 100px;
   --card-radius: 16px;
   
-  /* Animation */
-  --transition-fast: 180ms ease;
-  --transition-normal: 350ms ease;
+  /* Motion Specifications: Advanced */
+  --motion-intensity: advanced;
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Base resets & typography */
@@ -66,7 +68,24 @@ body {
   padding: 0;
 }
 
-/* Custom utility patterns */
+/* Animated Grid & Layered Background */
+@keyframes gridDrift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+.animated-grid-pattern {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(48, 50, 56, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(48, 50, 56, 0.22) 1px, transparent 1px);
+  animation: gridDrift 30s linear infinite;
+}
+
 .tech-grid-pattern {
   background-size: 40px 40px;
   background-image: 
@@ -114,5 +133,9 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .animated-grid-pattern {
+    animation: none !important;
   }
 }
