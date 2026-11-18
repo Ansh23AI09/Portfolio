@@ -10,7 +10,7 @@ export const personalInfo = {
   location: 'Gurugram, Haryana, India',
   phone: '+91 8368309766',
   email: 'anshh1953@gmail.com',
-  github: 'https://github.com/ansh-sharma',
+  github: 'https://github.com/Ansh23AI09',
   linkedin: 'https://linkedin.com/in/ansh-sharma-47066b35a',
   resumeUrl: '/Ansh_Sharma_Resume_Excel.pdf',
   resumeTextUrl: '/Ansh_Sharma_Resume_Excel.txt',
@@ -237,6 +237,6 @@ export const certificates: Certificate[] = [
 
 export const socialLinks: SocialLink[] = [
   { platform: 'LinkedIn', url: 'https://linkedin.com/in/ansh-sharma-47066b35a', icon: 'Linkedin', handle: 'ansh-sharma-47066b35a' },
-  { platform: 'GitHub', url: 'https://github.com/ansh-sharma', icon: 'Github', handle: '@ansh-sharma' },
+  { platform: 'GitHub', url: 'https://github.com/Ansh23AI09', icon: 'Github', handle: '@Ansh23AI09' },
   { platform: 'Email', url: 'mailto:anshh1953@gmail.com', icon: 'Mail', handle: 'anshh1953@gmail.com' }
 ]
