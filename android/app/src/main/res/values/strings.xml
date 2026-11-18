@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ansh Sharma</string>
+    <string name="title_activity_main">Ansh Sharma</string>
+    <string name="package_name">com.anshsharma.portfolio</string>
+    <string name="custom_url_scheme">com.anshsharma.portfolio</string>
+</resources>

@@ -11,7 +11,6 @@ import { Footer } from './components/layout/Footer'
 import { BackToTop } from './components/common/BackToTop'
 import { BackgroundSystem } from './components/common/BackgroundSystem'
 import { CustomCursor } from './components/common/CustomCursor'
-import { InstallPWA } from './components/common/InstallPWA'
 
 export function App() {
   return (
@@ -57,9 +56,6 @@ export function App() {
 
       {/* Floating Back to Top Button */}
       <BackToTop />
-
-      {/* Android PWA Install Prompt */}
-      <InstallPWA />
     </div>
   )
 }
