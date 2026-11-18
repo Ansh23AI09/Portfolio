@@ -12,14 +12,15 @@ import {
   Check,
   FileCode,
   FileTerminal,
-  Workflow
+  ShieldCheck,
+  MapPin
 } from 'lucide-react'
 import { personalInfo } from '../../data/portfolioData'
 import { Button } from '../common/Button'
 
 export const Hero: React.FC = () => {
   const [copied, setCopied] = useState(false)
-  const [activeTab, setActiveTab] = useState<'python' | 'typescript' | 'logs'>('python')
+  const [activeTab, setActiveTab] = useState<'python' | 'security' | 'logs'>('python')
   const [logCounter, setLogCounter] = useState(148)
 
   // Subtle live log ticker simulating active microservices
@@ -30,48 +31,50 @@ export const Hero: React.FC = () => {
     return () => clearInterval(interval)
   }, [])
 
-  const pythonSnippet = `@app.post("/api/v1/verify", response_model=VerificationReport)
-async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)):
-    """Extract assertions & cross-reference source registries."""
-    embedding = await encoder.encode_async(payload.claim_text)
-    sources = await vector_index.similarity_search(embedding, k=5)
-    
-    # Run neural stance classification & confidence score
-    analysis = await stance_model.evaluate(payload.claim_text, sources)
-    
-    return VerificationReport(
-        confidence_score=analysis.score,  # 94.2% verified
-        verified_sources=sources.citations,
-        latency_ms=18.4
-    )`
+  const pythonSnippet = `import pandas as pd
+import matplotlib.pyplot as plt
 
-  const typescriptSnippet = `export interface VerificationReport {
-  readonly claimId: UUID;
-  readonly confidenceScore: number; // 0.0 - 1.0
-  readonly verdict: 'AUTHENTIC' | 'DISPUTED' | 'UNVERIFIED';
-  readonly citations: ReadonlyArray<SourceCitation>;
-  readonly telemetry: {
-    inferenceMs: number;
-    embeddingTokens: number;
-    cacheHit: boolean;
-  };
-}`
+def analyze_and_visualize(dataset_path: str):
+    """Clean data & discover patterns using Pandas & Matplotlib."""
+    df = pd.read_csv(dataset_path).dropna()
+    summary = df.describe().to_dict()
+    
+    # Generate distribution & trend analysis
+    plt.figure(figsize=(10, 5))
+    plt.plot(df['timestamp'], df['metric_val'], color='#E53945')
+    plt.title("Exploratory Data Analysis — Trends & Correlations")
+    
+    return {"status": "SUCCESS", "rows_cleaned": len(df), "insights": summary}`
+
+  const securitySnippet = `# IBM SkillsBuild Cybersecurity Audit Script
+def audit_security_posture(network_config: dict) -> dict:
+    """Evaluate port states, hash integrity & firewall rules."""
+    vulnerabilities = []
+    if network_config.get("unencrypted_protocols"):
+        vulnerabilities.append("WARN: Insecure protocol detected")
+        
+    return {
+        "candidate": "Ansh Sharma",
+        "cert_id": "BHIBMCSB00747",
+        "status": "SECURE",
+        "posture_score": 98.5
+    }`
 
   const logLines = [
-    `[INFO] 12:28:44 [uvicorn] Started server process [PID 4192]`,
-    `[POST] /api/v1/verify 200 OK - 18.2ms (cache: MISS)`,
-    `[SYNC] FAISS index synchronized with 52,140 registries`,
-    `[POST] /api/v1/verify 200 OK - 2.1ms (cache: HIT_REDIS)`,
-    `[HEALTH] Memory: 114MB / 1024MB | CPU: 1.4% | Thread pool: Healthy`,
-    `[EVENT] Completed verification payload #${logCounter} with 0 errors`
+    `[INFO] AISECT Learn: Loaded Python Data Science environment`,
+    `[PANDAS] Ingested 52,140 rows — 0 missing values after cleanup`,
+    `[MATPLOTLIB] Rendered trend correlation matrix (figure_01.png)`,
+    `[IBM_SECURITY] Verified certificate ID: BHIBMCSB00747`,
+    `[DPGITM] Academic Specialization: B.Tech AIML (SGPA: 7.4)`,
+    `[STATUS] Ready for Data Science & AIML engineering roles #${logCounter}`
   ]
 
   const handleCopyCode = () => {
     const textToCopy =
       activeTab === 'python'
         ? pythonSnippet
-        : activeTab === 'typescript'
-        ? typescriptSnippet
+        : activeTab === 'security'
+        ? securitySnippet
         : logLines.join('\n')
     navigator.clipboard.writeText(textToCopy)
     setCopied(true)
@@ -135,7 +138,7 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3">
               <span className="font-code text-xs md:text-sm font-semibold tracking-wider text-[#E53945] uppercase px-3 py-1 rounded-md bg-[#E53945]/10 border border-[#E53945]/20 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E53945] animate-pulse" />
-                ANSH.SHARMA / SOFTWARE ENGINEERING
+                ANSH.SHARMA / B.TECH AIML
               </span>
 
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1C1E22] border border-[#303238] text-xs font-code text-[#A1A1AA]">
@@ -145,6 +148,11 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                 </span>
                 <span>{personalInfo.status}</span>
               </div>
+
+              <div className="inline-flex items-center gap-1.5 text-xs font-code text-[#A1A1AA]">
+                <MapPin className="w-3.5 h-3.5 text-[#E53945]" />
+                <span>Gurugram, Haryana</span>
+              </div>
             </motion.div>
 
             {/* Main Headline */}
@@ -152,18 +160,18 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
               variants={itemVariants}
               className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F5F5] leading-[1.12]"
             >
-              Engineering Digital Experiences.{' '}
+              Engineering Intelligent Systems.{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E53945] via-[#FF5964] to-[#F5F5F5]">
-                Building Real Solutions.
+                Delivering Data Solutions.
               </span>
             </motion.h1>
 
-            {/* Subtext - Human, Credible, Engineering-Grounded */}
+            {/* Subtext - Authentic Bio from Resume */}
             <motion.p
               variants={itemVariants}
               className="font-body text-[#A1A1AA] text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed"
             >
-              I'm <strong className="text-white font-medium">Ansh Sharma</strong>, a Computer Science engineering student focused on building high-reliability distributed systems, clean full-stack web platforms, and applied AI applications that perform reliably under real-world conditions.
+              I'm <strong className="text-white font-medium">Ansh Sharma</strong>, a B.Tech student specializing in <strong>Artificial Intelligence & Machine Learning (AIML)</strong> at <strong className="text-white">DPG Institute of Technology and Management</strong>. Eager to apply technical skills in Python, data analysis, and cybersecurity to build innovative real-world projects.
             </motion.p>
 
             {/* Action Buttons */}
@@ -238,7 +246,7 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                       }`}
                     >
                       <FileCode className="w-3 h-3 text-[#E53945]" />
-                      <span>verify_api.py</span>
+                      <span>data_analysis.py</span>
                       {activeTab === 'python' && (
                         <motion.div
                           layoutId="heroTabIndicator"
@@ -249,14 +257,14 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                     </button>
 
                     <button
-                      onClick={() => setActiveTab('typescript')}
+                      onClick={() => setActiveTab('security')}
                       className={`relative px-2.5 py-1 rounded text-xs font-code flex items-center gap-1.5 transition-colors cursor-pointer ${
-                        activeTab === 'typescript' ? 'text-white' : 'text-[#A1A1AA] hover:text-[#F5F5F5]'
+                        activeTab === 'security' ? 'text-white' : 'text-[#A1A1AA] hover:text-[#F5F5F5]'
                       }`}
                     >
-                      <Workflow className="w-3 h-3 text-[#60A5FA]" />
-                      <span>spec.ts</span>
-                      {activeTab === 'typescript' && (
+                      <ShieldCheck className="w-3 h-3 text-[#60A5FA]" />
+                      <span>ibm_audit.py</span>
+                      {activeTab === 'security' && (
                         <motion.div
                           layoutId="heroTabIndicator"
                           className="absolute inset-0 bg-[#25272C] rounded -z-10 border border-[#303238]"
@@ -272,7 +280,7 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                       }`}
                     >
                       <FileTerminal className="w-3 h-3 text-[#22C55E]" />
-                      <span>telemetry.log</span>
+                      <span>output.log</span>
                       {activeTab === 'logs' && (
                         <motion.div
                           layoutId="heroTabIndicator"
@@ -312,61 +320,61 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                     >
                       <pre className="space-y-1">
                         <div>
-                          <span className="text-[#FF5964]">@app.post</span>
-                          <span className="text-[#A1A1AA]">(</span>
-                          <span className="text-[#22C55E]">"/api/v1/verify"</span>
-                          <span className="text-[#A1A1AA]">, response_model=VerificationReport)</span>
+                          <span className="text-[#FF5964]">import</span>{' '}
+                          <span className="text-[#F5F5F5]">pandas</span>{' '}
+                          <span className="text-[#FF5964]">as</span>{' '}
+                          <span className="text-[#60A5FA]">pd</span>
                         </div>
                         <div>
-                          <span className="text-[#FF5964]">async def</span>{' '}
-                          <span className="text-[#60A5FA]">verify_claim</span>
-                          <span className="text-[#A1A1AA]">(payload: ClaimRequest, db: AsyncSession):</span>
+                          <span className="text-[#FF5964]">import</span>{' '}
+                          <span className="text-[#F5F5F5]">matplotlib.pyplot</span>{' '}
+                          <span className="text-[#FF5964]">as</span>{' '}
+                          <span className="text-[#60A5FA]">plt</span>
+                        </div>
+                        <div className="py-0.5"></div>
+                        <div>
+                          <span className="text-[#FF5964]">def</span>{' '}
+                          <span className="text-[#60A5FA]">analyze_dataset</span>
+                          <span className="text-[#A1A1AA]">(file_path: str):</span>
                         </div>
                         <div className="text-[#A1A1AA] italic">
-                          {'    '}{'# 1. Semantic embedding search across 50k+ registries'}
+                          {'    '}{'# 1. Clean & process structured data (AISECT Learn Capstone)'}
                         </div>
                         <div>
-                          {'    '}<span>embedding = </span>
-                          <span className="text-[#FF5964]">await</span>{' '}
-                          <span>encoder.encode_async(payload.claim_text)</span>
+                          {'    '}<span>df = pd.read_csv(file_path).dropna()</span>
                         </div>
                         <div>
-                          {'    '}<span>sources = </span>
-                          <span className="text-[#FF5964]">await</span>{' '}
-                          <span>vector_index.similarity_search(embedding, k=5)</span>
+                          {'    '}<span>summary = df.describe().to_dict()</span>
                         </div>
                         <div className="py-0.5"></div>
                         <div className="text-[#A1A1AA] italic">
-                          {'    '}{'# 2. Neural stance verification & scoring'}
+                          {'    '}{'# 2. Extract trends and visual distributions'}
                         </div>
                         <div>
-                          {'    '}<span>verdict = </span>
-                          <span className="text-[#FF5964]">await</span>{' '}
-                          <span>stance_model.evaluate(payload.claim, sources)</span>
+                          {'    '}<span>plt.figure(figsize=(10, 5))</span>
+                        </div>
+                        <div>
+                          {'    '}<span>plt.plot(df[</span>
+                          <span className="text-[#22C55E]">'metric'</span>
+                          <span>], color=</span>
+                          <span className="text-[#FF5964]">'#E53945'</span>
+                          <span>)</span>
                         </div>
                         <div>
                           {'    '}<span className="text-[#FF5964]">return</span>{' '}
-                          <span className="text-[#F5F5F5]">VerificationReport(</span>
-                        </div>
-                        <div>
-                          {'        '}<span>confidence=</span>
-                          <span className="text-[#FF5964] font-semibold">verdict.score</span>
-                          <span className="text-[#A1A1AA]">,  # 94.2% verified</span>
-                        </div>
-                        <div>
-                          {'        '}<span>citations=sources.citations, latency_ms=</span>
-                          <span className="text-[#22C55E]">18.4</span>
-                        </div>
-                        <div>
-                          {'    '}<span className="text-[#F5F5F5]">)</span>
+                          <span>{'{'}</span>
+                          <span className="text-[#22C55E]">'rows'</span>: len(df),{' '}
+                          <span className="text-[#22C55E]">'status'</span>:{' '}
+                          <span className="text-[#22C55E]">'CLEANED'</span>
+                          <span>{'}'}</span>
                         </div>
                       </pre>
                     </motion.div>
                   )}
 
-                  {activeTab === 'typescript' && (
+                  {activeTab === 'security' && (
                     <motion.div
-                      key="typescript"
+                      key="security"
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
@@ -374,42 +382,43 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                     >
                       <pre className="space-y-1">
                         <div>
-                          <span className="text-[#FF5964]">export interface</span>{' '}
-                          <span className="text-[#60A5FA] font-semibold">VerificationReport</span>{' '}
-                          <span className="text-[#A1A1AA]">{'{'}</span>
+                          <span className="text-[#A1A1AA] italic"># IBM SkillsBuild Cybersecurity BootCamp</span>
                         </div>
                         <div>
-                          {'  '}<span className="text-[#FF5964]">readonly</span> claimId:{' '}
-                          <span className="text-[#38BDF8]">UUID</span>;
+                          <span className="text-[#FF5964]">def</span>{' '}
+                          <span className="text-[#60A5FA]">audit_security_posture</span>
+                          <span className="text-[#A1A1AA]">(network_config: dict):</span>
                         </div>
                         <div>
-                          {'  '}<span className="text-[#FF5964]">readonly</span> confidenceScore:{' '}
-                          <span className="text-[#38BDF8]">number</span>;{' '}
-                          <span className="text-[#A1A1AA]">// 0.0 - 1.0</span>
+                          {'    '}<span>vulnerabilities = []</span>
                         </div>
                         <div>
-                          {'  '}<span className="text-[#FF5964]">readonly</span> verdict:{' '}
-                          <span className="text-[#22C55E]">'AUTHENTIC'</span> |{' '}
-                          <span className="text-[#F59E0B]">'DISPUTED'</span>;
+                          {'    '}<span className="text-[#FF5964]">if</span> network_config.get(
+                          <span className="text-[#22C55E]">"unencrypted_ports"</span>):
                         </div>
                         <div>
-                          {'  '}<span className="text-[#FF5964]">readonly</span> citations:{' '}
-                          <span className="text-[#38BDF8]">ReadonlyArray</span>&lt;SourceCitation&gt;;
+                          {'        '}<span>vulnerabilities.append(</span>
+                          <span className="text-[#FF5964]">"WARN: Insecure Port"</span>
+                          <span>)</span>
+                        </div>
+                        <div className="py-0.5"></div>
+                        <div>
+                          {'    '}<span className="text-[#FF5964]">return</span> {'{'}
                         </div>
                         <div>
-                          {'  '}<span className="text-[#FF5964]">readonly</span> telemetry: {'{'}
+                          {'        '}<span className="text-[#22C55E]">"engineer"</span>:{' '}
+                          <span className="text-[#F5F5F5]">"Ansh Sharma"</span>,
                         </div>
                         <div>
-                          {'    '}inferenceMs:{' '}<span className="text-[#38BDF8]">number</span>;
+                          {'        '}<span className="text-[#22C55E]">"cert_id"</span>:{' '}
+                          <span className="text-[#38BDF8]">"BHIBMCSB00747"</span>,
                         </div>
                         <div>
-                          {'    '}cacheHit:{' '}<span className="text-[#38BDF8]">boolean</span>;
+                          {'        '}<span className="text-[#22C55E]">"score"</span>:{' '}
+                          <span className="text-[#22C55E]">"100% Passed"</span>
                         </div>
                         <div>
-                          {'  }'};
-                        </div>
-                        <div>
-                          <span className="text-[#A1A1AA]">{'}'}</span>
+                          {'    }'}
                         </div>
                       </pre>
                     </motion.div>
@@ -428,11 +437,11 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                         <div
                           key={i}
                           className={`text-xs ${
-                            line.includes('200 OK')
+                            line.includes('PANDAS')
                               ? 'text-[#22C55E]'
-                              : line.includes('HEALTH')
+                              : line.includes('DPGITM')
                               ? 'text-[#38BDF8]'
-                              : line.includes('EVENT')
+                              : line.includes('IBM_SECURITY')
                               ? 'text-[#FF5964]'
                               : 'text-[#A1A1AA]'
                           }`}
@@ -451,22 +460,22 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                 <div className="flex items-center gap-3">
                   <span className="flex items-center gap-1.5 text-[#22C55E]">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Tests: 42 passed</span>
+                    <span>Python 3.12 · Pandas · NumPy</span>
                   </span>
                   <span className="text-[#303238]">|</span>
                   <span className="text-[#A1A1AA] flex items-center gap-1">
                     <Activity className="w-3.5 h-3.5 text-[#E53945]" />
-                    <span>Latency: 18.4ms</span>
+                    <span>SGPA: 7.4</span>
                   </span>
                 </div>
 
                 <span className="text-[#A1A1AA] bg-[#25272C] px-2 py-0.5 rounded text-[11px] border border-[#303238]">
-                  Python 3.12 · FastAPI
+                  AIML @ DPGITM
                 </span>
               </div>
             </div>
 
-            {/* Floating High-Tech Metrics Badges with subtle floating animation */}
+            {/* Floating High-Tech Metrics Badges */}
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
@@ -476,8 +485,8 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                 <Cpu className="w-4 h-4" />
               </div>
               <div>
-                <p className="font-heading text-xs font-bold text-white">Full-Stack & Distributed</p>
-                <p className="font-code text-[10px] text-[#A1A1AA]">Python · FastAPI · React · Docker</p>
+                <p className="font-heading text-xs font-bold text-white">Data Science & AIML</p>
+                <p className="font-code text-[10px] text-[#A1A1AA]">Pandas · Matplotlib · Power BI · SQL</p>
               </div>
             </motion.div>
 
@@ -490,8 +499,8 @@ async def verify_claim(payload: ClaimRequest, db: AsyncSession = Depends(get_db)
                 <Sparkles className="w-4 h-4" />
               </div>
               <div>
-                <p className="font-heading text-xs font-bold text-white">Engineering Quality</p>
-                <p className="font-code text-[10px] text-[#A1A1AA]">Clean Architecture & Observability</p>
+                <p className="font-heading text-xs font-bold text-white">IBM & AISECT Certified</p>
+                <p className="font-code text-[10px] text-[#A1A1AA]">ID: BHIBMCSB00747 & j82HZm6AKB</p>
               </div>
             </motion.div>
 

@@ -39,10 +39,9 @@ export const Skills: React.FC = () => {
 
   const filteredCategories = skillCategories.filter((cat) => {
     if (activeCategory === 'all') return true
-    if (activeCategory === 'backend') return ['languages', 'backend', 'database'].includes(cat.id)
-    if (activeCategory === 'frontend') return ['frontend'].includes(cat.id)
-    if (activeCategory === 'ai') return ['ai-ml'].includes(cat.id)
-    if (activeCategory === 'devtools') return ['devtools'].includes(cat.id)
+    if (activeCategory === 'data-science') return ['data-science', 'languages', 'databases'].includes(cat.id)
+    if (activeCategory === 'cybersecurity') return ['cybersecurity', 'languages'].includes(cat.id)
+    if (activeCategory === 'tools') return ['bi-tools', 'web-development', 'databases'].includes(cat.id)
     return true
   })
 
@@ -53,17 +52,16 @@ export const Skills: React.FC = () => {
         <SectionHeading
           number="03"
           title="Technical Competencies"
-          subtitle="An honest, practical breakdown of languages, frameworks, and developer tooling I rely on to build scalable software."
+          subtitle="An honest, practical breakdown of programming languages, analytical libraries, and cybersecurity tools from academic & internship experience."
         />
 
         {/* Filter Pills with Motion layoutId */}
         <div className="flex flex-wrap items-center gap-2 mb-10">
           {[
             { id: 'all', label: 'All Technologies' },
-            { id: 'backend', label: 'Backend & Systems' },
-            { id: 'frontend', label: 'Frontend & UI' },
-            { id: 'ai', label: 'AI & NLP' },
-            { id: 'devtools', label: 'DevOps & Tooling' },
+            { id: 'data-science', label: 'Data Science & AIML' },
+            { id: 'cybersecurity', label: 'Cybersecurity' },
+            { id: 'tools', label: 'BI, Web & Tools' },
           ].map((tab) => (
             <button
               key={tab.id}

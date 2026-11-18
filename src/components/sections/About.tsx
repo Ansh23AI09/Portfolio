@@ -6,7 +6,7 @@ import {
   CheckCircle2,
   TerminalSquare,
   Sparkles,
-  Flame
+  Award
 } from 'lucide-react'
 import { SectionHeading } from '../common/SectionHeading'
 import { SpotlightCard } from '../common/SpotlightCard'
@@ -19,7 +19,7 @@ export const About: React.FC = () => {
         <SectionHeading
           number="02"
           title="About & Engineering Mindset"
-          subtitle="A disciplined, pragmatic approach to software craft: translating complex computer science theory into resilient production code."
+          subtitle="Specializing in Artificial Intelligence, Machine Learning, and Python Data Science at DPG Institute of Technology & Management."
         />
 
         {/* Two columns on desktop, one column on mobile */}
@@ -31,19 +31,19 @@ export const About: React.FC = () => {
             <SpotlightCard className="p-6 sm:p-8 space-y-5">
               <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#F5F5F5] flex items-center gap-2.5">
                 <TerminalSquare className="w-5 h-5 text-[#E53945]" />
-                The Story Behind the Code
+                Career Objective & Background
               </h3>
               
               <p>
-                Hello! I'm <strong className="text-white font-medium">Ansh Sharma</strong>. I fell in love with programming not just by building user interfaces, but by digging deep into what happens under the hood when code executes—how memory buffers align, why databases stall on unindexed scans, and how asynchronous event loops maximize throughput under concurrency.
+                Hello! I'm <strong className="text-white font-medium">Ansh Sharma</strong>, a motivated and detail-oriented B.Tech student specializing in <strong className="text-white font-medium">Artificial Intelligence and Machine Learning (AIML)</strong> at <span className="text-[#FF5964]">DPG Institute of Technology and Management, Gurugram</span>.
               </p>
 
               <p>
-                During my computer science degree, I challenged myself to move beyond standard student tutorials. When I built <span className="text-[#FF5964] font-code font-semibold">VerifyWeb</span>, my flagship misinformation detection engine, I dove into transformer embeddings, vector search indexing, and background task workers with Celery & FastAPI. I wanted to build something that solves real human problems with verifiable, explainable citations.
+                My technical passion is centered on applying analytical and problem-solving skills to real-world datasets. During my <strong className="text-white font-medium">4-credit Python for Data Science Internship with AISECT Learn</strong>, I conducted exploratory analysis, data cleaning, and statistical visualization using <span className="text-[#F5F5F5] font-code">Pandas, NumPy, and Matplotlib</span> to identify meaningful trends and support data-driven decision-making.
               </p>
 
               <p>
-                Whether I'm writing Python microservices, building clean TypeScript/React interfaces, or optimizing SQL execution plans, my philosophy is simple: <span className="text-white font-medium">write readable, type-safe, and transparent software that teammates love to maintain and users find lightning-fast.</span>
+                Recently, I also completed the <strong className="text-white font-medium">IBM SkillsBuild Cybersecurity BootCamp</strong> (in association with BharatCares), deepening my knowledge of network defense, threat assessment, and secure software development.
               </p>
             </SpotlightCard>
 
@@ -52,44 +52,45 @@ export const About: React.FC = () => {
               <SpotlightCard className="p-5 space-y-2">
                 <div className="flex items-center gap-2 text-white font-heading font-semibold text-base">
                   <GraduationCap className="w-4 h-4 text-[#E53945]" />
-                  <span>Academic Grounding</span>
+                  <span>Academic Standing</span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#A1A1AA]">
-                  B.Tech in CSE with a strong <strong>8.85 CGPA</strong>. Deeply grounded in Operating Systems, Distributed Systems, Computer Networks, and Discrete Math.
+                  Pursuing B.Tech in AIML at DPGITM, Gurugram. Last Semester <strong>SGPA: 7.4</strong>. Solid foundation in Python, C, C++, Java, and SQL.
                 </p>
               </SpotlightCard>
 
               <SpotlightCard className="p-5 space-y-2">
                 <div className="flex items-center gap-2 text-white font-heading font-semibold text-base">
                   <BrainCircuit className="w-4 h-4 text-[#E53945]" />
-                  <span>Applied AI & Systems</span>
+                  <span>Applied AIML & Data</span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#A1A1AA]">
-                  Bridging the gap between neural models (RAG, dense embeddings) and deterministic backend pipelines that respect latency budgets.
+                  Practical data science workflows with Pandas, NumPy, and Power BI for data cleaning, transformation, and visual reporting.
                 </p>
               </SpotlightCard>
             </div>
 
-            {/* Currently Exploring Card */}
+            {/* Verified Certifications Highlight Card */}
             <SpotlightCard className="p-5 sm:p-6 bg-[#25272C]/40 border-[#303238]">
               <div className="flex items-center gap-2 text-white font-heading font-semibold text-base mb-2">
-                <Flame className="w-4 h-4 text-[#FF5964]" />
-                <span>What I'm Exploring Right Now</span>
+                <Award className="w-4 h-4 text-[#FF5964]" />
+                <span>Verified Industry Credentials</span>
               </div>
-              <p className="text-xs sm:text-sm text-[#A1A1AA]">
-                Benchmarking local LLM inference engines (vLLM & llama.cpp), exploring distributed consensus protocols (Raft), and writing systems utilities to profile memory allocations.
-              </p>
+              <ul className="text-xs sm:text-sm text-[#A1A1AA] space-y-1.5">
+                <li>• <strong>AISECT Learn:</strong> Python for Data Science Internship (120 Hours / 4 Credits, Cert ID: <span className="text-[#F5F5F5] font-code">j82HZm6AKB</span>)</li>
+                <li>• <strong>IBM SkillsBuild:</strong> 2-Week Cybersecurity BootCamp (ID: <span className="text-[#F5F5F5] font-code">BHIBMCSB00747</span>)</li>
+              </ul>
             </SpotlightCard>
 
           </div>
 
-          {/* Right Column: Engineering Principles & Highlights (5 cols) */}
+          {/* Right Column: Personal Strengths & Quick Facts (5 cols) */}
           <div className="lg:col-span-5 space-y-5">
             
             <SpotlightCard className="p-6 sm:p-7">
               <h3 className="font-heading text-lg font-bold text-white mb-4 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#E53945]" />
-                Engineering Principles
+                Personal Strengths
               </h3>
 
               <div className="space-y-4">
@@ -97,10 +98,10 @@ export const About: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5 text-[#22C55E] shrink-0 mt-0.5" />
                   <div>
                     <h5 className="font-heading text-sm font-semibold text-white">
-                      Simple Beats Clever
+                      Quick Learner & Highly Adaptable
                     </h5>
                     <p className="text-xs text-[#A1A1AA] mt-0.5">
-                      Clear control flow, structured types, and helpful logs save ten times more hours than clever one-liners.
+                      Fast to learn new languages, analytical libraries, frameworks, and developer workflows.
                     </p>
                   </div>
                 </div>
@@ -109,10 +110,10 @@ export const About: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5 text-[#22C55E] shrink-0 mt-0.5" />
                   <div>
                     <h5 className="font-heading text-sm font-semibold text-white">
-                      Measure Before Optimizing
+                      Analytical & Problem-Solving Mindset
                     </h5>
                     <p className="text-xs text-[#A1A1AA] mt-0.5">
-                      Profile CPU, query plans, and network latencies with real metrics rather than guessing bottlenecks.
+                      Approaching bugs and data challenges systematically through hypothesis testing and data exploration.
                     </p>
                   </div>
                 </div>
@@ -121,10 +122,10 @@ export const About: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5 text-[#22C55E] shrink-0 mt-0.5" />
                   <div>
                     <h5 className="font-heading text-sm font-semibold text-white">
-                      High Empathy for End Users & Teammates
+                      Team Collaboration & Communication
                     </h5>
                     <p className="text-xs text-[#A1A1AA] mt-0.5">
-                      Fast load times, accessible interfaces, and thorough documentation are marks of professional craftsmanship.
+                      Communicating technical insights clearly in English and Hindi, with strong collaborative spirit.
                     </p>
                   </div>
                 </div>
@@ -134,35 +135,35 @@ export const About: React.FC = () => {
             {/* Quick Stat Highlights with motion hover */}
             <div className="grid grid-cols-2 gap-4">
               <SpotlightCard className="p-4 text-center">
-                <span className="font-heading text-3xl font-bold text-[#E53945]">8.85</span>
-                <p className="font-code text-xs text-[#A1A1AA] mt-1">B.Tech CGPA</p>
+                <span className="font-heading text-3xl font-bold text-[#E53945]">7.4</span>
+                <p className="font-code text-xs text-[#A1A1AA] mt-1">Last Sem SGPA</p>
               </SpotlightCard>
 
               <SpotlightCard className="p-4 text-center">
-                <span className="font-heading text-3xl font-bold text-white">20+</span>
-                <p className="font-code text-xs text-[#A1A1AA] mt-1">Projects & Prototypes</p>
+                <span className="font-heading text-3xl font-bold text-white">120+</span>
+                <p className="font-code text-xs text-[#A1A1AA] mt-1">Internship Hours</p>
               </SpotlightCard>
 
               <SpotlightCard className="p-4 text-center">
-                <span className="font-heading text-3xl font-bold text-white">400+</span>
-                <p className="font-code text-xs text-[#A1A1AA] mt-1">Algorithmic Problems</p>
+                <span className="font-heading text-3xl font-bold text-white">2</span>
+                <p className="font-code text-xs text-[#A1A1AA] mt-1">Industry Certifications</p>
               </SpotlightCard>
 
               <SpotlightCard className="p-4 text-center">
                 <span className="font-heading text-3xl font-bold text-[#22C55E]">100%</span>
-                <p className="font-code text-xs text-[#A1A1AA] mt-1">Focus on Quality</p>
+                <p className="font-code text-xs text-[#A1A1AA] mt-1">Dedication</p>
               </SpotlightCard>
             </div>
 
-            {/* Career Objective */}
+            {/* Location & Contact Card */}
             <div className="p-5 rounded-2xl bg-[#1C1E22] border border-[#303238] flex items-start gap-3">
               <Compass className="w-5 h-5 text-[#E53945] shrink-0 mt-0.5" />
               <div>
                 <h5 className="font-heading text-sm font-semibold text-white">
-                  Looking Ahead
+                  Based in Gurugram, Haryana
                 </h5>
                 <p className="text-xs text-[#A1A1AA] mt-1 leading-relaxed">
-                  Excited to join an engineering team where I can contribute to high-scale backend services, build resilient tools, and learn alongside veteran architects.
+                  Available for full-time entry-level engineering roles, data science positions, and technical internships across NCR / Remote.
                 </p>
               </div>
             </div>

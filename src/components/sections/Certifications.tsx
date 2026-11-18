@@ -12,10 +12,10 @@ export const Certifications: React.FC = () => {
         <SectionHeading
           number="06"
           title="Certifications & Coursework"
-          subtitle="Rigorous specialized training and verified certifications in modern frontend architectures, deep neural networks, and database performance."
+          subtitle="Rigorous technical bootcamps and verified credentials in cybersecurity defensive operations and Python data science."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-6">
           {certificates.map((cert) => (
             <SpotlightCard
               key={cert.id}

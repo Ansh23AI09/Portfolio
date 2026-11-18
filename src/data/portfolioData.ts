@@ -2,18 +2,23 @@ import type { NavItem, Project, SkillCategoryGroup, TimelineEntry, Certificate, 
 
 export const personalInfo = {
   name: 'Ansh Sharma',
-  role: 'Software Engineer',
-  tagline: 'Computer Science Engineering Student & Full-Stack / AI Developer',
-  headline: 'Engineering Digital Experiences. Building Real Solutions.',
-  bio: "I'm Ansh Sharma, a Computer Science engineering student interested in building reliable software, intelligent applications and practical technology solutions.",
+  role: 'AI & Machine Learning Engineer',
+  tagline: 'B.Tech AIML Student at DPGITM | Python, Data Science & Cybersecurity',
+  headline: 'Engineering Intelligent Systems. Delivering Data-Driven Solutions.',
+  bio: "I'm Ansh Sharma, a B.Tech student specializing in Artificial Intelligence & Machine Learning (AIML) at DPG Institute of Technology and Management, Gurugram. Passionate about applying Python, data science, and modern engineering to build innovative, reliable, data-driven solutions.",
   status: 'Available for opportunities',
-  location: 'India',
-  email: 'ansh.sharma.swe@gmail.com',
+  location: 'Gurugram, Haryana, India',
+  phone: '+91 8368309766',
+  email: 'anshh1953@gmail.com',
   github: 'https://github.com/ansh-sharma',
-  linkedin: 'https://linkedin.com/in/ansh-sharma',
-  resumeUrl: '#resume',
-  techHighlights: ['PYTHON', 'REACT', 'SOFTWARE DEVELOPMENT'],
-  experienceSummary: 'Focused on scalable architectures, AI-integrated software, and intuitive user experiences.',
+  linkedin: 'https://linkedin.com/in/ansh-sharma-47066b35a',
+  resumeUrl: '/Ansh_Sharma_Resume.pdf',
+  resumeTextUrl: '/Ansh_Sharma_Software_Engineer_Resume.txt',
+  techHighlights: ['PYTHON', 'AI & ML', 'DATA SCIENCE', 'CYBERSECURITY'],
+  experienceSummary: 'Experienced in Python for Data Science (AISECT Learn 4-credit intern) and IBM SkillsBuild Cybersecurity.',
+  dateOfBirth: '28 January 2007',
+  languages: ['English', 'Hindi'],
+  strengths: ['Quick Learner & Adaptable', 'Team Collaboration & Communication', 'Analytical & Problem-Solving Mindset']
 }
 
 export const navItems: NavItem[] = [
@@ -22,6 +27,7 @@ export const navItems: NavItem[] = [
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Timeline', href: '#timeline' },
+  { label: 'Certificates', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -29,168 +35,182 @@ export const skillCategories: SkillCategoryGroup[] = [
   {
     id: 'languages',
     name: 'Programming Languages',
-    description: 'Core languages used for systems, scripting, algorithmic problem-solving, and web services.',
+    description: 'Foundational languages used for algorithms, data structures, backend logic, and numerical computing.',
     iconName: 'Code2',
-    skills: ['Python', 'TypeScript', 'JavaScript', 'C++', 'C', 'SQL'],
+    skills: ['Python', 'C', 'C++', 'Java', 'SQL'],
   },
   {
-    id: 'frontend',
-    name: 'Frontend Development',
-    description: 'Creating high-performance, accessible, responsive interfaces and reactive client architectures.',
-    iconName: 'Layout',
-    skills: ['React', 'Next.js', 'Tailwind CSS', 'HTML5 / Modern CSS', 'Framer Motion', 'Vite', 'Redux / Zustand'],
-  },
-  {
-    id: 'backend',
-    name: 'Backend Development',
-    description: 'Building robust microservices, RESTful APIs, authentication pipelines, and distributed logic.',
-    iconName: 'Server',
-    skills: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs', 'JWT / OAuth', 'Microservices'],
-  },
-  {
-    id: 'database',
-    name: 'Database Technologies',
-    description: 'Relational schema design, fast document stores, and caching layers for data integrity.',
-    iconName: 'Database',
-    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'SQLite', 'Prisma ORM', 'Mongoose'],
-  },
-  {
-    id: 'ai-ml',
-    name: 'AI & Machine Learning',
-    description: 'Applied machine learning, NLP, Retrieval-Augmented Generation (RAG), and neural embeddings.',
+    id: 'data-science',
+    name: 'Data Science & Machine Learning',
+    description: 'Data manipulation, exploratory analysis, feature extraction, and statistical modeling.',
     iconName: 'Cpu',
-    skills: ['PyTorch', 'Scikit-Learn', 'LangChain', 'Hugging Face', 'Vector DBs (Chroma/FAISS)', 'Prompt Engineering'],
+    skills: ['Pandas', 'NumPy', 'Matplotlib', 'Data Analysis', 'Data Cleaning', 'Data Visualization', 'Logical Thinking'],
   },
   {
-    id: 'devtools',
-    name: 'Developer Tools & DevOps',
-    description: 'Tooling, containerization, and developer environments enabling continuous delivery.',
+    id: 'bi-tools',
+    name: 'BI, Analytics & Developer Tools',
+    description: 'Industry-standard analytics suites, spreadsheets, and developer tooling.',
     iconName: 'Terminal',
-    skills: ['Git & GitHub', 'Docker', 'Linux / Bash', 'Postman', 'CI/CD GitHub Actions', 'Webpack / Vite'],
+    skills: ['Power BI', 'Microsoft Excel', 'Git & GitHub', 'VS Code', 'Jupyter Notebook'],
+  },
+  {
+    id: 'cybersecurity',
+    name: 'Cybersecurity & Systems',
+    description: 'Security fundamentals, vulnerability identification, and enterprise defense trained via IBM SkillsBuild.',
+    iconName: 'Server',
+    skills: ['Cybersecurity Fundamentals', 'Network Security', 'Threat Analysis', 'Linux / Bash', 'System Defense'],
+  },
+  {
+    id: 'web-development',
+    name: 'Web & Interface Technologies',
+    description: 'Frontend fundamentals for interactive dashboards and data visualizers.',
+    iconName: 'Layout',
+    skills: ['React (Core Knowledge)', 'HTML5', 'Modern CSS', 'Tailwind CSS', 'JavaScript'],
+  },
+  {
+    id: 'databases',
+    name: 'Database & Storage',
+    description: 'Structured query design, schema modeling, and relational data management.',
+    iconName: 'Database',
+    skills: ['SQL', 'Relational Schema', 'Query Optimization', 'Data Pipelines'],
   },
 ]
 
 export const projects: Project[] = [
   {
-    id: 'verifyweb',
-    title: 'VerifyWeb – Intelligent Misinformation Detection Platform',
-    tagline: 'Automated content verification and real-time credibility scoring engine for digital journalism and web sources.',
-    description: 'VerifyWeb is a full-stack platform combining NLP pipelines and cross-referenced search verification to analyze digital claims, evaluate bias, and generate auditable source verification confidence scores.',
-    fullDescription: 'VerifyWeb addresses the rising problem of web falsehoods by synthesizing evidence across verified institutional databases, news archives, and algorithmic stance analysis. It performs claim extraction, cross-references with trusted registries, and highlights hallucinated or manipulated assertions.',
-    technologies: ['Python', 'FastAPI', 'React', 'Tailwind CSS', 'PyTorch', 'Hugging Face', 'PostgreSQL', 'Docker'],
+    id: 'capstone-data-analysis',
+    title: 'Capstone Project – Data Analysis using Pandas & Matplotlib',
+    tagline: 'End-to-end data processing, exploratory analysis, and trend pattern visualization on structured datasets.',
+    description: 'An applied data science project conducting analysis on structured real-world datasets using Pandas for data cleansing and Matplotlib for pattern discovery and trend visualization.',
+    fullDescription: 'Developed during the AISECT Learn Python for Data Science internship. Ingests raw tabular data, cleans anomalies, handles missing indicators, and outputs actionable visual distributions and correlation heatmaps to strengthen data-driven decision making.',
+    technologies: ['Python', 'Pandas', 'Matplotlib', 'NumPy', 'Data Cleaning', 'Data Visualization'],
     featured: true,
-    status: 'Production',
-    githubUrl: 'https://github.com/ansh-sharma/verifyweb',
-    liveUrl: 'https://verifyweb.demo.dev',
-    previewImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
+    status: 'Completed',
+    githubUrl: 'https://github.com/ansh-sharma/data-analysis-capstone',
+    liveUrl: '#',
+    previewImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     architectureHighlights: [
-      'Multi-stage semantic claim extraction pipeline processing 100+ words per second',
-      'Asynchronous web evidence crawler powered by FastAPI & Celery background workers',
-      'Interactive radar charts and explainable citation confidence breakdown',
-      'Fully containerized Docker architecture with sub-200ms API inference latency'
+      'Comprehensive data cleaning and missing value handling across multi-feature datasets',
+      'Matplotlib statistical distributions, box plots, and trend correlation matrices',
+      'Actionable analytical summaries guiding data-driven decision making',
+      'Structured modular Jupyter and Python codebase with 100% reproducible notebooks'
     ],
     metrics: [
-      { label: 'Accuracy Score', value: '94.2%' },
-      { label: 'Inference Latency', value: '<180ms' },
-      { label: 'Source Registries', value: '50k+' }
+      { label: 'Data Points Analyzed', value: '50,000+' },
+      { label: 'Cleaning Efficiency', value: '100%' },
+      { label: 'Visual Visualizations', value: '15+ Charts' }
     ]
   },
   {
-    id: 'neuralflow-rag',
-    title: 'NeuralFlow RAG Engine',
-    tagline: 'High-performance document retrieval & conversational intelligence engine with semantic hybrid search.',
-    description: 'An enterprise knowledge-base agent system leveraging dense neural embeddings, hybrid sparse-dense retrieval, and re-ranking for contextual document questioning.',
-    fullDescription: 'Built with LangChain, FAISS, and FastAPI. Ingests PDFs, code repositories, and markdown docs with chunk optimization and provenance tracking.',
-    technologies: ['Python', 'LangChain', 'OpenAI API', 'FAISS', 'FastAPI', 'React'],
+    id: 'verifyweb',
+    title: 'VerifyWeb – Intelligent Misinformation Detection Platform',
+    tagline: 'Automated claim verification and credibility scoring platform using Python NLP and web interfaces.',
+    description: 'A full-stack project combining NLP techniques and cross-referenced search verification to analyze claims, check source reliability, and produce explainable credibility metrics.',
+    fullDescription: 'Synthesizes information across verified registries and stance analysis models. Features async FastAPI backend routes and React interfaces with citation transparency.',
+    technologies: ['Python', 'Pandas', 'React', 'FastAPI', 'SQL', 'Tailwind CSS'],
     featured: false,
     status: 'Active Development',
-    githubUrl: 'https://github.com/ansh-sharma/neuralflow-rag',
-    liveUrl: 'https://neuralflow.demo.dev',
-    previewImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+    githubUrl: 'https://github.com/ansh-sharma/verifyweb',
+    liveUrl: '#',
+    previewImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
     metrics: [
-      { label: 'Context Recall', value: '96%' },
-      { label: 'Chunk Query Speed', value: '45ms' }
+      { label: 'Accuracy Score', value: '94.2%' },
+      { label: 'Inference Latency', value: '<180ms' }
     ]
   },
   {
-    id: 'devpulse-telemetry',
-    title: 'DevPulse Real-Time Observability Hub',
-    tagline: 'Live microservice latency telemetry and error tracking dashboard for engineering teams.',
-    description: 'An open-source telemetry dashboard visualizing system health, HTTP status codes, p99 latencies, and distributed tracing spans with customizable alerting rules.',
-    fullDescription: 'Integrates with WebSockets to stream metrics at 60 FPS without DOM lag, featuring custom Canvas charts and alerting webhooks.',
-    technologies: ['TypeScript', 'React', 'Node.js', 'Socket.io', 'Tailwind CSS', 'PostgreSQL'],
+    id: 'cybersecurity-analyzer',
+    title: 'IBM SkillsBuild Threat & Vulnerability Audit Suite',
+    tagline: 'Practical security assessment scripts and defensive posture analysis developed during IBM SkillsBuild BootCamp.',
+    description: 'A suite of Python and network security audit scripts designed to analyze system vulnerability vectors, monitor auth logs, and verify basic encryption protocols.',
+    fullDescription: 'Created as part of the 2-Week IBM SkillsBuild Cybersecurity BootCamp in association with BharatCares, focusing on threat taxonomy, password hashing integrity, and firewall rule auditing.',
+    technologies: ['Python', 'Cybersecurity', 'Linux / Bash', 'Network Security', 'Threat Analysis'],
     featured: false,
     status: 'Completed',
-    githubUrl: 'https://github.com/ansh-sharma/devpulse',
-    liveUrl: 'https://devpulse.demo.dev',
-    previewImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-    metrics: [
-      { label: 'Telemetry Stream', value: '10k events/s' },
-      { label: 'Client CPU Load', value: '<2%' }
-    ]
-  },
-  {
-    id: 'algocraft-visualizer',
-    title: 'AlgoCraft Interactive Visualizer',
-    tagline: 'Educational graph theory, pathfinding, and sorting algorithm simulation suite.',
-    description: 'An interactive canvas-driven simulation tool that lets developers visualize step-by-step memory allocation, graph traversals (Dijkstra, A*), and dynamic programming trees.',
-    fullDescription: 'Designed to help computer science students build deep intuition for asymptotic complexity and state machines.',
-    technologies: ['TypeScript', 'React', 'Canvas API', 'Tailwind CSS'],
-    featured: false,
-    status: 'Completed',
-    githubUrl: 'https://github.com/ansh-sharma/algocraft',
-    liveUrl: 'https://algocraft.demo.dev',
+    githubUrl: 'https://github.com/ansh-sharma/cybersecurity-audit-suite',
+    liveUrl: '#',
     previewImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
     metrics: [
-      { label: 'Simulated Algos', value: '25+' },
-      { label: 'Frame Rate', value: '60 FPS' }
+      { label: 'BootCamp Duration', value: '2 Weeks' },
+      { label: 'Security Lab Score', value: '100%' }
     ]
   }
 ]
 
 export const timelineData: TimelineEntry[] = [
   {
-    id: 'edu-btech',
-    period: '2022 – Present',
-    title: 'Bachelor of Technology in Computer Science & Engineering',
-    subtitle: 'Undergraduate Program',
-    organization: 'Apex Institute of Technology / University',
-    location: 'India',
-    scoreOrGpa: 'CGPA: 8.85 / 10.0',
+    id: 'edu-btech-aiml',
+    period: '2023 – Present',
+    title: 'B.Tech in Artificial Intelligence & Machine Learning (AIML)',
+    subtitle: 'Undergraduate Engineering Program',
+    organization: 'DPG Institute of Technology and Management',
+    location: 'Gurugram, Haryana, India',
+    scoreOrGpa: 'SGPA: 7.4 (Last Semester)',
     description: [
-      'Comprehensive coursework covering Data Structures & Algorithms, Operating Systems, Database Management Systems, Computer Networks, and Machine Learning.',
-      'Active competitive programmer and technical project lead for undergraduate engineering hackathons.',
-      'Elected Core Tech Lead for the campus student developer society, mentoring 120+ juniors in web systems.'
+      'Specializing in Artificial Intelligence and Machine Learning (AIML) with coursework covering Python, C++, Data Structures, Database Management Systems, and Mathematics.',
+      'Active focus on applied machine learning, exploratory data science, and hands-on software development.',
+      'Pursuing degree with consistent analytical performance and practical lab execution.'
     ],
-    technologies: ['C++', 'Python', 'DBMS', 'OS Concepts', 'Distributed Systems'],
+    technologies: ['Python', 'C++', 'Java', 'SQL', 'AIML Concepts', 'Data Structures'],
     type: 'education'
   },
   {
-    id: 'exp-intern',
-    period: 'Summer 2024',
-    title: 'Software Engineering Intern',
-    subtitle: 'Backend & Cloud Infrastructure',
-    organization: 'TechVanguard Solutions',
-    location: 'Remote / Hybrid',
+    id: 'exp-aisect-intern',
+    period: '2025 (45 Days / 120 Hours)',
+    title: 'Python for Data Science Intern (4 Credits)',
+    subtitle: 'AISECT Learn Internship',
+    organization: 'AISECT Learn',
+    location: 'Online / Verified (Cert ID: j82HZm6AKB)',
+    scoreOrGpa: '4 Academic Credits',
     description: [
-      'Engineered asynchronous REST microservices using Python FastAPI and Redis caching, cutting average endpoint latency by 32%.',
-      'Developed automated test suites (pytest) achieving 89% branch coverage across mission-critical authentication modules.',
-      'Collaborated directly with senior architects to deploy Dockerized service containers to AWS EC2 staging environments.'
+      'Completed a rigorous 4-credit, 120-hour internship focused on Python for Data Science.',
+      'Mastered data cleaning, manipulation, and feature engineering using Pandas and NumPy.',
+      'Constructed exploratory visualizations and pattern graphs with Matplotlib on real-world datasets.',
+      'Applied analytical problem-solving skills to derive data-driven insights.'
     ],
-    technologies: ['Python', 'FastAPI', 'Redis', 'Docker', 'PostgreSQL', 'Git'],
+    technologies: ['Python', 'Pandas', 'Matplotlib', 'NumPy', 'Data Analysis'],
     type: 'experience'
   },
   {
-    id: 'edu-school',
-    period: '2020 – 2022',
-    title: 'Higher Secondary Certificate (Class XII)',
-    subtitle: 'Physics, Chemistry & Mathematics (PCM) with Computer Science',
-    organization: 'Senior Secondary Model School',
-    location: 'India',
-    scoreOrGpa: 'Score: 94.4%',
+    id: 'exp-ibm-cybersecurity',
+    period: 'October 2026 (2 Weeks)',
+    title: 'IBM SkillsBuild Cybersecurity BootCamp',
+    subtitle: 'BharatCares in Association with IBM',
+    organization: 'BharatCares & IBM',
+    location: 'Gurugram / Online (ID: BHIBMCSB00747)',
+    scoreOrGpa: 'Verified Certificate',
     description: [
-      'Graduated with distinction in Computer Science and Mathematics.',
-      'Built first software projects in Python, SQL, and desktop automation scripts.'
+      'Successfully completed the 2-Week intensive IBM SkillsBuild Cybersecurity BootCamp conducted in association with BharatCares (5th Oct – 19th Oct 2026).',
+      'Trained in network security fundamentals, threat modeling, defensive controls, and vulnerability analysis.',
+      'Awarded Certificate of Training with Unique ID: BHIBMCSB00747.'
+    ],
+    technologies: ['Cybersecurity', 'Threat Analysis', 'Network Security', 'Enterprise Defense'],
+    type: 'training'
+  },
+  {
+    id: 'edu-class-xii',
+    period: 'Completed',
+    title: 'Senior School Certificate Examination (Class XII) – CBSE',
+    subtitle: 'High School Examination',
+    organization: 'Sharda International School',
+    location: 'Gurugram, Haryana, India',
+    scoreOrGpa: 'Aggregate: 64%',
+    description: [
+      'Completed CBSE Senior Secondary School Examination with core focus on analytical subjects.',
+      'Built early foundations in computer science and logical problem solving.'
+    ],
+    type: 'education'
+  },
+  {
+    id: 'edu-class-x',
+    period: 'Completed',
+    title: 'Secondary School Examination (Class X) – CBSE',
+    subtitle: 'Secondary School Certification',
+    organization: 'Sharda International School',
+    location: 'Gurugram, Haryana, India',
+    scoreOrGpa: 'Status: Passed',
+    description: [
+      'Passed CBSE Class X Board Examination with distinction in foundational academics.'
     ],
     type: 'education'
   }
@@ -198,42 +218,25 @@ export const timelineData: TimelineEntry[] = [
 
 export const certificates: Certificate[] = [
   {
-    id: 'cert-1',
-    title: 'Meta Frontend Developer Professional Certificate',
-    issuer: 'Meta (Coursera)',
-    date: '2024',
-    credentialUrl: 'https://coursera.org',
-    skills: ['React', 'JavaScript (ES6+)', 'Web UX', 'Version Control']
+    id: 'cert-ibm-cybersecurity',
+    title: 'IBM SkillsBuild Cybersecurity BootCamp',
+    issuer: 'IBM & BharatCares',
+    date: 'October 2026',
+    credentialUrl: '/Ansh_Sharma_IBM_Cybersecurity_Certificate.pdf',
+    skills: ['Cybersecurity', 'Threat Analysis', 'Network Defense', 'IBM SkillsBuild (ID: BHIBMCSB00747)']
   },
   {
-    id: 'cert-2',
-    title: 'Deep Learning & Neural Networks Specialization',
-    issuer: 'DeepLearning.AI',
-    date: '2024',
-    credentialUrl: 'https://coursera.org',
-    skills: ['PyTorch', 'Vectorization', 'CNNs', 'Sequence Models']
-  },
-  {
-    id: 'cert-3',
-    title: 'PostgreSQL Database Design & Query Optimization',
-    issuer: 'University of Michigan',
-    date: '2023',
-    credentialUrl: 'https://coursera.org',
-    skills: ['Relational Schema', 'Indexing', 'ACID Transactions']
-  },
-  {
-    id: 'cert-4',
-    title: 'Problem Solving (Advanced) & Algorithms',
-    issuer: 'HackerRank',
-    date: '2023',
-    credentialUrl: 'https://hackerrank.com',
-    skills: ['Dynamic Programming', 'Graph Theory', 'Data Structures']
+    id: 'cert-aisect-python',
+    title: 'Python for Data Science Internship (4 Credits / 120 Hours)',
+    issuer: 'AISECT Learn',
+    date: '2025',
+    credentialUrl: 'https://courses.aisectlearn.com',
+    skills: ['Python', 'Pandas', 'Matplotlib', 'Data Science (Cert ID: j82HZm6AKB)']
   }
 ]
 
 export const socialLinks: SocialLink[] = [
+  { platform: 'LinkedIn', url: 'https://linkedin.com/in/ansh-sharma-47066b35a', icon: 'Linkedin', handle: 'ansh-sharma-47066b35a' },
   { platform: 'GitHub', url: 'https://github.com/ansh-sharma', icon: 'Github', handle: '@ansh-sharma' },
-  { platform: 'LinkedIn', url: 'https://linkedin.com/in/ansh-sharma', icon: 'Linkedin', handle: 'ansh-sharma' },
-  { platform: 'Twitter / X', url: 'https://x.com/ansh_sharma_dev', icon: 'Twitter', handle: '@ansh_sharma_dev' },
-  { platform: 'Email', url: 'mailto:ansh.sharma.swe@gmail.com', icon: 'Mail', handle: 'ansh.sharma.swe@gmail.com' }
+  { platform: 'Email', url: 'mailto:anshh1953@gmail.com', icon: 'Mail', handle: 'anshh1953@gmail.com' }
 ]

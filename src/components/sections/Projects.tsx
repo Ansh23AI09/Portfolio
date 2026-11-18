@@ -85,7 +85,7 @@ export const Projects: React.FC = () => {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {featuredProject.technologies.map((t) => (
-                      <SkillTag key={t} name={t} size="sm" highlight={['Python', 'FastAPI', 'React', 'PyTorch'].includes(t)} />
+                      <SkillTag key={t} name={t} size="sm" highlight={['Python', 'Pandas', 'Matplotlib', 'NumPy', 'FastAPI'].includes(t)} />
                     ))}
                   </div>
                 </div>

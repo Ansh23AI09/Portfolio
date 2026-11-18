@@ -8,7 +8,9 @@ import {
   Check,
   MessageSquare,
   Clock,
-  AlertCircle
+  AlertCircle,
+  Phone,
+  MapPin
 } from 'lucide-react'
 import { SectionHeading } from '../common/SectionHeading'
 import { SocialLinks } from '../common/SocialLinks'
@@ -27,6 +29,7 @@ export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [copiedEmail, setCopiedEmail] = useState(false)
+  const [copiedPhone, setCopiedPhone] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({
@@ -89,6 +92,13 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopiedEmail(false), 2000)
   }
 
+  const handleCopyPhone = () => {
+    if (!personalInfo.phone) return
+    navigator.clipboard.writeText(personalInfo.phone)
+    setCopiedPhone(true)
+    setTimeout(() => setCopiedPhone(false), 2000)
+  }
+
   return (
     <section id="contact" className="py-20 md:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,10 +121,10 @@ export const Contact: React.FC = () => {
                   DIRECT CHANNELS
                 </span>
                 <h3 className="font-heading text-2xl font-bold text-white mt-1">
-                  Let's Build Something Exceptional
+                  Let's Connect & Collaborate
                 </h3>
                 <p className="font-body text-sm text-[#A1A1AA] mt-2 leading-relaxed">
-                  I'm actively interviewing for full-time software engineering roles, internships, and high-impact technology projects. My inbox is always open.
+                  I'm actively seeking entry-level engineering roles, data science positions, and technical internships. Feel free to call, email, or message me directly.
                 </p>
               </div>
 
@@ -126,9 +136,12 @@ export const Contact: React.FC = () => {
                   </div>
                   <div className="overflow-hidden">
                     <p className="font-code text-[11px] text-[#A1A1AA] uppercase">Personal Email</p>
-                    <p className="font-code text-xs sm:text-sm font-semibold text-white truncate">
+                    <a
+                      href={`mailto:${personalInfo.email}`}
+                      className="font-code text-xs sm:text-sm font-semibold text-white hover:text-[#FF5964] transition-colors truncate block"
+                    >
                       {personalInfo.email}
-                    </p>
+                    </a>
                   </div>
                 </div>
 
@@ -141,10 +154,44 @@ export const Contact: React.FC = () => {
                 </button>
               </div>
 
+              {/* Phone & Location Card */}
+              {personalInfo.phone && (
+                <div className="p-4 rounded-xl bg-[#101113] border border-[#303238] flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 overflow-hidden">
+                    <div className="p-2.5 rounded-lg bg-[#22C55E]/15 text-[#22C55E] shrink-0">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div className="overflow-hidden">
+                      <p className="font-code text-[11px] text-[#A1A1AA] uppercase">Phone / WhatsApp</p>
+                      <a
+                        href={`tel:${personalInfo.phone}`}
+                        className="font-code text-xs sm:text-sm font-semibold text-white hover:text-[#22C55E] transition-colors truncate block"
+                      >
+                        {personalInfo.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyPhone}
+                    aria-label="Copy phone number"
+                    className="p-2 rounded-lg bg-[#25272C] hover:bg-[#303238] text-[#A1A1AA] hover:text-white transition-colors shrink-0 cursor-pointer"
+                  >
+                    {copiedPhone ? <Check className="w-4 h-4 text-[#22C55E]" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+              )}
+
+              {/* Location Badge */}
+              <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-[#101113] border border-[#303238] text-xs font-code text-[#A1A1AA]">
+                <MapPin className="w-4 h-4 text-[#E53945] shrink-0" />
+                <span>{personalInfo.location}</span>
+              </div>
+
               {/* External Profiles */}
               <div>
                 <p className="font-code text-xs font-semibold text-[#A1A1AA] uppercase tracking-wider mb-3">
-                  Developer Profiles & Networks
+                  Verified Profiles & Networks
                 </p>
                 <SocialLinks layout="cards" />
               </div>
@@ -246,7 +293,7 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="e.g. Software Engineering Opportunity / VerifyWeb Inquiry"
+                    placeholder="e.g. Data Science Role / AIML Opportunity"
                     className="w-full px-4 py-3 rounded-xl bg-[#101113] border border-[#303238] text-white placeholder-[#A1A1AA]/50 text-sm font-body focus:outline-none focus:border-[#E53945] focus:ring-1 focus:ring-[#E53945] transition-colors"
                   />
                 </div>
@@ -263,7 +310,7 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Write your note, role requirements, or project details..."
+                    placeholder="Write your note, job requirements, or project details..."
                     className="w-full px-4 py-3 rounded-xl bg-[#101113] border border-[#303238] text-white placeholder-[#A1A1AA]/50 text-sm font-body focus:outline-none focus:border-[#E53945] focus:ring-1 focus:ring-[#E53945] transition-colors resize-none"
                   />
                 </div>
@@ -278,7 +325,7 @@ export const Contact: React.FC = () => {
                     className="w-full sm:w-auto"
                     icon={<Send className="w-4 h-4" />}
                   >
-                    {isSubmitting ? 'Transmitting Dispatch...' : 'Send Message'}
+                    {isSubmitting ? 'Transmitting Message...' : 'Send Message'}
                   </Button>
                 </div>
               </form>

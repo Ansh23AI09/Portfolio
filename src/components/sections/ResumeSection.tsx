@@ -9,42 +9,17 @@ import {
 import { SectionHeading } from '../common/SectionHeading'
 import { Button } from '../common/Button'
 import { SpotlightCard } from '../common/SpotlightCard'
-import { personalInfo } from '../../data/portfolioData'
 
 export const ResumeSection: React.FC = () => {
   const [downloadSuccess, setDownloadSuccess] = useState(false)
 
   const handleDownload = () => {
-    const resumeText = `ANSH SHARMA - SOFTWARE ENGINEER
-Email: ${personalInfo.email}
-GitHub: ${personalInfo.github} | LinkedIn: ${personalInfo.linkedin}
-
-SUMMARY
-Computer Science Engineering student focused on building reliable, high-performance distributed systems, AI-powered applications, and modern web architectures.
-
-EDUCATION
-Bachelor of Technology in Computer Science & Engineering (CGPA: 8.85 / 10.0)
-
-CORE COMPETENCIES
-- Programming: Python, TypeScript, JavaScript, C++, SQL
-- Full Stack: React, Next.js, FastAPI, Node.js, Express, Tailwind CSS
-- Databases & Infra: PostgreSQL, MongoDB, Redis, Docker, Git, CI/CD
-- AI & NLP: PyTorch, LangChain, FAISS, Transformer architectures
-
-FEATURED PROJECTS
-- VerifyWeb: Automated digital credibility & misinformation verification engine using FastAPI, PyTorch & React.
-- NeuralFlow RAG: High-performance document retrieval & conversational intelligence engine.
-- DevPulse Telemetry: Real-time distributed microservice latency dashboard.`
-
-    const blob = new Blob([resumeText], { type: 'text/plain' })
-    const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
-    a.href = url
-    a.download = 'Ansh_Sharma_Software_Engineer_Resume.txt'
+    a.href = '/Ansh_Sharma_Resume.pdf'
+    a.download = 'Ansh_Sharma_Resume.pdf'
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
-    URL.revokeObjectURL(url)
 
     setDownloadSuccess(true)
     setTimeout(() => setDownloadSuccess(false), 3000)
@@ -57,7 +32,7 @@ FEATURED PROJECTS
         <SectionHeading
           number="07"
           title="Curriculum Vitae & Resume"
-          subtitle="A comprehensive record of systems built, academic honors, and technical competencies prepared for engineering recruiters."
+          subtitle="A comprehensive record of academic training at DPGITM, AISECT Learn data science internship, IBM SkillsBuild cybersecurity certification, and core technical skills."
         />
 
         <SpotlightCard className="p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
@@ -73,61 +48,72 @@ FEATURED PROJECTS
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-code font-semibold uppercase bg-[#22C55E]/15 text-[#22C55E] border border-[#22C55E]/30">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  ATS-Parsed & Verified
+                  Verified Credentials
                 </span>
                 <span className="font-code text-xs text-[#A1A1AA]">
-                  Updated for 2025/2026 Opportunities
+                  B.Tech AIML · Gurugram, Haryana
                 </span>
               </div>
 
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white leading-snug">
-                Ready for high-impact software engineering roles & internships.
+                Ready for Data Science, AI/ML, and Software Engineering opportunities.
               </h3>
 
               <p className="font-body text-[#A1A1AA] text-sm sm:text-base leading-relaxed">
-                Contains verified documentation of projects, microservices built with Python and FastAPI, coursework syllabus, competitive programming accomplishments, and academic transcripts.
+                Contains verified documentation of coursework at DPG Institute of Technology & Management, the 4-credit AISECT Learn Python for Data Science internship, and the IBM SkillsBuild Cybersecurity BootCamp certificate.
               </p>
 
               {/* Highlights Checklist */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#F5F5F5]">
                   <CheckCircle2 className="w-4 h-4 text-[#E53945]" />
-                  <span>8.85 CGPA in B.Tech CSE</span>
+                  <span>B.Tech AIML (SGPA: 7.4)</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#F5F5F5]">
                   <CheckCircle2 className="w-4 h-4 text-[#E53945]" />
-                  <span>FastAPI, PyTorch & React Stack</span>
+                  <span>AISECT Learn Data Science Intern</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#F5F5F5]">
                   <CheckCircle2 className="w-4 h-4 text-[#E53945]" />
-                  <span>Backend & Microservice Internships</span>
+                  <span>IBM SkillsBuild Cybersecurity Certified</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm text-[#F5F5F5]">
                   <CheckCircle2 className="w-4 h-4 text-[#E53945]" />
-                  <span>400+ Algorithmic Challenges</span>
+                  <span>Python, C, C++, Java, SQL & Pandas</span>
                 </div>
               </div>
 
               {/* Download CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-4">
+              <div className="flex flex-wrap items-center gap-3 pt-4">
                 <Button
                   onClick={handleDownload}
                   variant="primary"
                   size="lg"
                   icon={<Download className="w-5 h-5" />}
                 >
-                  {downloadSuccess ? 'Downloaded Resume!' : 'Download Resume (TXT/PDF)'}
+                  {downloadSuccess ? 'Downloaded Resume (PDF)!' : 'Download Resume (PDF)'}
                 </Button>
 
                 <Button
-                  href="/Ansh_Sharma_Software_Engineer_Resume.txt"
+                  href="/Ansh_Sharma_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="secondary"
                   size="lg"
                   icon={<FileCheck className="w-5 h-5" />}
                 >
-                  Quick Print View
+                  View Official PDF
+                </Button>
+
+                <Button
+                  href="/Ansh_Sharma_Software_Engineer_Resume.txt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline"
+                  size="lg"
+                  icon={<FileText className="w-5 h-5" />}
+                >
+                  ATS Text (.txt)
                 </Button>
               </div>
 
@@ -146,7 +132,7 @@ FEATURED PROJECTS
                     </span>
                   </div>
                   <span className="font-code text-[11px] text-[#A1A1AA]">
-                    Page 1 / 1
+                    Gurugram, HR · Verified
                   </span>
                 </div>
 
@@ -154,34 +140,41 @@ FEATURED PROJECTS
                 <div className="space-y-3 font-code text-xs text-[#A1A1AA] select-none opacity-85">
                   <div className="flex justify-between items-baseline">
                     <span className="text-white font-bold text-sm">ANSH SHARMA</span>
-                    <span className="text-[#FF5964]">B.Tech CSE</span>
+                    <span className="text-[#FF5964]">B.Tech AIML (7.4 SGPA)</span>
                   </div>
                   <div className="h-[1px] bg-[#303238]" />
 
                   <div>
-                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">CORE STACK</span>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">EDUCATION</span>
                     <p className="text-[11px] text-[#A1A1AA] mt-0.5">
-                      Python, TypeScript, React, Next.js, FastAPI, PostgreSQL, Docker, PyTorch
+                      DPG Institute of Technology and Management, Gurugram
                     </p>
                   </div>
 
                   <div>
-                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">EXPERIENCE</span>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">INTERNSHIP</span>
                     <p className="text-[11px] text-[#A1A1AA] mt-0.5">
-                      Software Engineering Intern • TechVanguard Solutions (FastAPI, Redis)
+                      AISECT Learn — Python for Data Science (4 Credits / 120 Hours)
                     </p>
                   </div>
 
                   <div>
-                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">FLAGSHIP WORK</span>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">CERTIFICATION</span>
                     <p className="text-[11px] text-[#A1A1AA] mt-0.5">
-                      VerifyWeb Misinformation Engine (94.2% accuracy, &lt;180ms latency)
+                      IBM SkillsBuild Cybersecurity BootCamp (ID: BHIBMCSB00747)
+                    </p>
+                  </div>
+
+                  <div>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">TECH STACK</span>
+                    <p className="text-[11px] text-[#A1A1AA] mt-0.5">
+                      Python, C, C++, Java, SQL, Pandas, Matplotlib, NumPy, Power BI, Excel
                     </p>
                   </div>
 
                   <div className="pt-2 text-center">
                     <span className="text-[10px] text-[#E53945] tracking-widest uppercase">
-                      *** END OF RESUME PREVIEW ***
+                      *** VERIFIED CANDIDATE PROFILE ***
                     </span>
                   </div>
                 </div>

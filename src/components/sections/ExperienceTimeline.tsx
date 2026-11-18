@@ -18,6 +18,7 @@ export const ExperienceTimeline: React.FC = () => {
 
   const filteredItems = timelineData.filter((item) => {
     if (filter === 'all') return true
+    if (filter === 'experience') return item.type === 'experience' || item.type === 'training'
     return item.type === filter
   })
 
