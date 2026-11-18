@@ -13,16 +13,25 @@ import { SpotlightCard } from '../common/SpotlightCard'
 export const ResumeSection: React.FC = () => {
   const [downloadSuccess, setDownloadSuccess] = useState(false)
 
-  const handleDownload = () => {
+  const handleDownloadPdf = () => {
     const a = document.createElement('a')
-    a.href = '/Ansh_Sharma_Resume.pdf'
-    a.download = 'Ansh_Sharma_Resume.pdf'
+    a.href = '/Ansh_Sharma_Resume_Excel.pdf'
+    a.download = 'Ansh_Sharma_Resume_Excel.pdf'
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
 
     setDownloadSuccess(true)
     setTimeout(() => setDownloadSuccess(false), 3000)
+  }
+
+  const handleDownloadTxt = () => {
+    const a = document.createElement('a')
+    a.href = '/Ansh_Sharma_Resume_Excel.txt'
+    a.download = 'Ansh_Sharma_Resume_Excel.txt'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
   }
 
   return (
@@ -86,7 +95,7 @@ export const ResumeSection: React.FC = () => {
               {/* Download CTAs */}
               <div className="flex flex-wrap items-center gap-3 pt-4">
                 <Button
-                  onClick={handleDownload}
+                  onClick={handleDownloadPdf}
                   variant="primary"
                   size="lg"
                   icon={<Download className="w-5 h-5" />}
@@ -95,25 +104,23 @@ export const ResumeSection: React.FC = () => {
                 </Button>
 
                 <Button
-                  href="/Ansh_Sharma_Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={handleDownloadTxt}
                   variant="secondary"
                   size="lg"
-                  icon={<FileCheck className="w-5 h-5" />}
+                  icon={<FileText className="w-5 h-5" />}
                 >
-                  View Official PDF
+                  Download Resume (TXT)
                 </Button>
 
                 <Button
-                  href="/Ansh_Sharma_Software_Engineer_Resume.txt"
+                  href="/Ansh_Sharma_Resume_Excel.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   variant="outline"
                   size="lg"
-                  icon={<FileText className="w-5 h-5" />}
+                  icon={<FileCheck className="w-5 h-5" />}
                 >
-                  ATS Text (.txt)
+                  View Official PDF
                 </Button>
               </div>
 
@@ -128,7 +135,7 @@ export const ResumeSection: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <FileText className="w-4 h-4 text-[#E53945]" />
                     <span className="font-code text-xs text-white font-semibold">
-                      Ansh_Sharma_Resume.pdf
+                      Ansh_Sharma_Resume_Excel.pdf
                     </span>
                   </div>
                   <span className="font-code text-[11px] text-[#A1A1AA]">
@@ -142,39 +149,49 @@ export const ResumeSection: React.FC = () => {
                     <span className="text-white font-bold text-sm">ANSH SHARMA</span>
                     <span className="text-[#FF5964]">B.Tech AIML (7.4 SGPA)</span>
                   </div>
+                  <div className="text-[11px] text-[#A1A1AA]">
+                    +91 8368309766 · anshh1953@gmail.com · Gurugram, India
+                  </div>
                   <div className="h-[1px] bg-[#303238]" />
+
+                  <div>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">CAREER OBJECTIVE</span>
+                    <p className="text-[11px] text-[#A1A1AA] mt-0.5 leading-relaxed">
+                      B.Tech AIML student eager to apply technical & analytical skills in real-world data-driven solutions.
+                    </p>
+                  </div>
 
                   <div>
                     <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">EDUCATION</span>
                     <p className="text-[11px] text-[#A1A1AA] mt-0.5">
-                      DPG Institute of Technology and Management, Gurugram
+                      DPGITM, Gurugram (AIML, SGPA: 7.4) · Sharda Int'l School (CBSE XII: 64%, X: Passed)
                     </p>
                   </div>
 
                   <div>
-                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">INTERNSHIP</span>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">INTERNSHIP & CAPSTONE</span>
                     <p className="text-[11px] text-[#A1A1AA] mt-0.5">
-                      AISECT Learn — Python for Data Science (4 Credits / 120 Hours)
+                      AISECT Learn (45 Days / 120 Hours) · Capstone: Data Analysis using Pandas & Matplotlib
                     </p>
                   </div>
 
                   <div>
-                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">CERTIFICATION</span>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">TECHNICAL SKILLS</span>
                     <p className="text-[11px] text-[#A1A1AA] mt-0.5">
-                      IBM SkillsBuild Cybersecurity BootCamp (ID: BHIBMCSB00747)
+                      Python, C, C++, Java, SQL, Pandas, Matplotlib, NumPy, Power BI, Excel, React
                     </p>
                   </div>
 
                   <div>
-                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">TECH STACK</span>
+                    <span className="text-[#F5F5F5] font-semibold uppercase text-[11px]">CERTIFICATIONS</span>
                     <p className="text-[11px] text-[#A1A1AA] mt-0.5">
-                      Python, C, C++, Java, SQL, Pandas, Matplotlib, NumPy, Power BI, Excel
+                      AISECT Learn (ID: j82HZm6AKB) · IBM SkillsBuild Cybersecurity (ID: BHIBMCSB00747)
                     </p>
                   </div>
 
                   <div className="pt-2 text-center">
                     <span className="text-[10px] text-[#E53945] tracking-widest uppercase">
-                      *** VERIFIED CANDIDATE PROFILE ***
+                      *** AUTHENTIC RESUME — ANSH SHARMA EXCEL ***
                     </span>
                   </div>
                 </div>

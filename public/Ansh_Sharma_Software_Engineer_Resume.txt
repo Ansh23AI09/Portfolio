@@ -2,15 +2,15 @@
 ANSH SHARMA
 ================================================================================
 Phone: +91 8368309766 | Email: anshh1953@gmail.com
-LinkedIn: https://linkedin.com/in/ansh-sharma-47066b35a
-Location: Gurugram, Haryana, India
+LinkedIn: linkedin.com/in/ansh-sharma-47066b35a
+Address: Gurugram, Haryana, India
 
 --------------------------------------------------------------------------------
 CAREER OBJECTIVE
 --------------------------------------------------------------------------------
-Motivated and detail-oriented B.Tech student specializing in Artificial Intelligence
-and Machine Learning, eager to apply technical and analytical skills in real-world
-projects. Seeking opportunities to contribute to innovative data-driven solutions
+Motivated and detail-oriented B.Tech student specializing in Artificial Intelligence 
+and Machine Learning, eager to apply technical and analytical skills in real-world 
+projects. Seeking opportunities to contribute to innovative data-driven solutions 
 while gaining hands-on industry experience.
 
 --------------------------------------------------------------------------------
@@ -30,61 +30,46 @@ Status: Passed
 --------------------------------------------------------------------------------
 PERSONAL INFORMATION
 --------------------------------------------------------------------------------
-Date of Birth : 28 January 2007
-Gender        : Male
-Nationality   : Indian
-Languages     : English, Hindi
-Address       : Gurugram, Haryana, India
+Date of Birth   : 28 January 2007
+Gender          : Male
+Nationality     : Indian
+Languages Known : English, Hindi
+Address         : Gurugram, Haryana, India
 
 --------------------------------------------------------------------------------
 INTERNSHIP EXPERIENCE
 --------------------------------------------------------------------------------
 AISECT Learn – Python for Data Science Internship
-Duration: 45 Days (120 Hours, 4 Credits, 2025)
+Duration: 45 Days (120 Hours)
 • Completed a 4-credit internship focused on Python for Data Science.
 • Learned data analysis, cleaning, and visualization techniques using Pandas and Matplotlib.
 • Worked on real-world data projects, applying analytical and problem-solving skills.
-• Certificate ID: j82HZm6AKB (Verified via: courses.aisectlearn.com)
-
---------------------------------------------------------------------------------
-CERTIFICATIONS
---------------------------------------------------------------------------------
-1. IBM SkillsBuild Cybersecurity BootCamp
-   • Organization: BharatCares (by SMEC Trust) in association with IBM
-   • Credential: Certificate of Training — 2-Week 'IBM SkillsBuild Cybersecurity BootCamp'
-   • Dates: 5th October 2026 to 19th October 2026
-   • Unique Certificate ID: BHIBMCSB00747
-
-2. AISECT Learn – Python for Data Science Internship
-   • Credential: 4 Credits / 120 Hours (2025)
-   • Verified via: courses.aisectlearn.com
-   • Certificate ID: j82HZm6AKB
 
 --------------------------------------------------------------------------------
 TECHNICAL SKILLS
 --------------------------------------------------------------------------------
 • Programming Languages : Python, C, C++, Java, SQL
 • Libraries & Tools     : Pandas, Matplotlib, NumPy, Power BI, Excel, React (Basic Knowledge)
-• Core Competencies     : Data Analysis, Data Cleaning, Data Visualization, Logical Thinking,
-                          Cybersecurity Fundamentals, Network Security
+• Other Skills          : Data Analysis, Data Cleaning, Data Visualization, Logical Thinking
 
 --------------------------------------------------------------------------------
 PROJECTS
 --------------------------------------------------------------------------------
-1. Capstone Project – Data Analysis using Pandas and Matplotlib
-   • Conducted analysis on structured datasets using Pandas for data processing.
-   • Created meaningful data visualizations using Matplotlib to identify patterns and trends.
-   • Strengthened understanding of data-driven decision-making concepts.
+Capstone Project – Data Analysis using Pandas and Matplotlib
+• Conducted analysis on structured datasets using Pandas for data processing.
+• Created meaningful data visualizations using Matplotlib to identify patterns and trends.
+• Strengthened understanding of data-driven decision-making concepts.
 
-2. VerifyWeb – Intelligent Misinformation Detection Platform
-   • Full-stack platform combining NLP pipelines and cross-referenced search verification
-     to analyze claims and generate credibility confidence scores.
-   • Technologies: Python, FastAPI, Pandas, React, SQL.
+--------------------------------------------------------------------------------
+CERTIFICATIONS
+--------------------------------------------------------------------------------
+• AISECT Learn – Python for Data Science Internship (4 Credits / 120 Hours, 2025)
+  Verified via: courses.aisectlearn.com
+  Certificate ID: j82HZm6AKB
 
-3. Threat & Vulnerability Audit Suite (IBM SkillsBuild)
-   • Practical defensive scripts and network configuration audit workflows developed
-     during the 2-Week IBM SkillsBuild Cybersecurity BootCamp.
-   • Technologies: Python, Linux / Bash, Network Defense.
+• IBM SkillsBuild Cybersecurity BootCamp (2-Week BootCamp, October 2026)
+  Conducted by BharatCares in association with IBM
+  Unique Certificate ID: BHIBMCSB00747
 
 --------------------------------------------------------------------------------
 PERSONAL STRENGTHS
