@@ -120,7 +120,9 @@ FEATURED PROJECTS
                 </Button>
 
                 <Button
-                  onClick={handleDownload}
+                  href="/Ansh_Sharma_Software_Engineer_Resume.txt"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="secondary"
                   size="lg"
                   icon={<FileCheck className="w-5 h-5" />}

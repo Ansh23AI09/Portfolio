@@ -7,7 +7,8 @@ import {
   Copy,
   Check,
   MessageSquare,
-  Clock
+  Clock,
+  AlertCircle
 } from 'lucide-react'
 import { SectionHeading } from '../common/SectionHeading'
 import { SocialLinks } from '../common/SocialLinks'
@@ -24,6 +25,7 @@ export const Contact: React.FC = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [copiedEmail, setCopiedEmail] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -33,17 +35,52 @@ export const Contact: React.FC = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrorMessage(null)
 
-    // Simulate submission delay
-    setTimeout(() => {
-      setIsSubmitting(false)
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+    const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT
+
+    try {
+      if (accessKey) {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            ...formData,
+            from_name: formData.name,
+            subject: `Portfolio Message: ${formData.subject}`,
+          }),
+        })
+        const result = await response.json()
+        if (!result.success) throw new Error(result.message || 'Transmission failed')
+      } else if (formspreeEndpoint) {
+        const response = await fetch(formspreeEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(formData),
+        })
+        if (!response.ok) throw new Error('Transmission failed')
+      } else {
+        // Fallback local simulation with graceful feedback
+        await new Promise((resolve) => setTimeout(resolve, 800))
+      }
+
       setSubmitted(true)
       setFormData({ name: '', email: '', subject: '', message: '' })
-      setTimeout(() => setSubmitted(false), 5000)
-    }, 1000)
+      setTimeout(() => setSubmitted(false), 6000)
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Failed to send message. Please reach out directly via email.'
+      setErrorMessage(msg)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleCopyEmail = () => {
@@ -146,6 +183,18 @@ export const Contact: React.FC = () => {
                     <span>Thank you! Your message has been received. I will review it and reply promptly.</span>
                   </motion.div>
                 )}
+
+                {errorMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mb-6 p-4 rounded-xl bg-[#E53945]/15 border border-[#E53945]/40 text-[#FF5964] flex items-center gap-3 text-sm font-body"
+                  >
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </motion.div>
+                )}
               </AnimatePresence>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -229,7 +278,7 @@ export const Contact: React.FC = () => {
                     className="w-full sm:w-auto"
                     icon={<Send className="w-4 h-4" />}
                   >
-                    {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                    {isSubmitting ? 'Transmitting Dispatch...' : 'Send Message'}
                   </Button>
                 </div>
               </form>

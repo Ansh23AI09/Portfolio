@@ -1,0 +1,77 @@
+================================================================================
+ANSH SHARMA — SOFTWARE ENGINEER
+================================================================================
+Email: ansh.sharma.swe@gmail.com
+GitHub: https://github.com/ansh-sharma
+LinkedIn: https://linkedin.com/in/ansh-sharma
+Location: India
+
+--------------------------------------------------------------------------------
+PROFESSIONAL SUMMARY
+--------------------------------------------------------------------------------
+Computer Science Engineering student focused on building resilient distributed
+systems, applied AI & NLP engines, and high-performance full-stack web platforms.
+Experienced with asynchronous Python (FastAPI), React, TypeScript, Docker, and
+relational/vector database performance optimization.
+
+--------------------------------------------------------------------------------
+EDUCATION
+--------------------------------------------------------------------------------
+Bachelor of Technology in Computer Science & Engineering
+Apex Institute of Technology / University | 2022 – Present
+• Current CGPA: 8.85 / 10.0
+• Coursework: Data Structures & Algorithms, Operating Systems, Database
+  Management Systems, Distributed Systems, Computer Networks, Machine Learning.
+• Elected Core Tech Lead for the Campus Developer Society, mentoring 120+ peers.
+
+Senior Secondary Model School (Class XII) | 2020 – 2022
+• Score: 94.4% (Physics, Chemistry, Mathematics with Computer Science)
+
+--------------------------------------------------------------------------------
+WORK EXPERIENCE
+--------------------------------------------------------------------------------
+Software Engineering Intern | TechVanguard Solutions
+Summer 2024 (Remote / Hybrid)
+• Engineered asynchronous REST microservices using Python FastAPI and Redis
+  caching, cutting average endpoint p95 latency by 32%.
+• Built automated test suites in pytest achieving 89% branch coverage across
+  mission-critical authentication modules.
+• Containerized microservices using Docker for automated staging deployments
+  on AWS EC2 infrastructure.
+
+--------------------------------------------------------------------------------
+FEATURED PROJECTS
+--------------------------------------------------------------------------------
+1. VerifyWeb — Misinformation Detection & Stance Verification Engine
+   • Built an automated content verification platform combining NLP pipelines
+     and cross-referenced search verification to analyze claims and assess bias.
+   • Multi-stage semantic extraction engine processing 100+ words per second
+     with sub-180ms inference latency.
+   • Stack: Python, FastAPI, React, PyTorch, FAISS Vector Index, PostgreSQL, Docker.
+
+2. NeuralFlow RAG — Enterprise Conversational Retrieval Engine
+   • High-performance knowledge-base agent leveraging dense neural embeddings,
+     hybrid sparse-dense retrieval, and re-ranking for contextual document Q&A.
+   • Stack: Python, LangChain, FAISS, FastAPI, React, OpenAI API.
+
+3. DevPulse — Real-Time Telemetry & Observability Hub
+   • Distributed microservice latency telemetry dashboard visualizing system
+     health, HTTP status codes, p99 latencies, and distributed tracing spans.
+   • Stack: TypeScript, React, Node.js, WebSockets, Tailwind CSS, PostgreSQL.
+
+--------------------------------------------------------------------------------
+TECHNICAL SKILLS
+--------------------------------------------------------------------------------
+• Programming: Python, TypeScript, JavaScript, C++, C, SQL
+• Full-Stack: React, Next.js, FastAPI, Node.js, Express, Tailwind CSS, Vite
+• Databases & Infra: PostgreSQL, MongoDB, Redis, Docker, Git & GitHub, Linux
+• AI & Machine Learning: PyTorch, LangChain, Hugging Face, FAISS, Vector Search
+
+--------------------------------------------------------------------------------
+CERTIFICATIONS
+--------------------------------------------------------------------------------
+• Meta Frontend Developer Professional Certificate (Coursera)
+• Deep Learning Specialization (DeepLearning.AI)
+• PostgreSQL Database Design & Query Optimization (Univ. of Michigan)
+• Problem Solving (Advanced) & Algorithms (HackerRank)
+================================================================================
